@@ -1,18 +1,22 @@
 import {NgModule, Optional, SkipSelf} from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SharedModule} from '../shared/shared.module';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { AppRoutingModule } from "../app-routing.module";
 @NgModule({
   imports: [
-    CommonModule,
-    SharedModule
+    SharedModule,
+    BrowserAnimationsModule,
+    AppRoutingModule
   ],
   exports: [
     HeaderComponent,
     FooterComponent,
-    SidebarComponent],
+    SidebarComponent,
+    AppRoutingModule
+  ],
   declarations: [HeaderComponent, FooterComponent, SidebarComponent]
 })
 export class CoreModule {

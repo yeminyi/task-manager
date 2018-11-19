@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
 import { MatToolbarModule,MatIconModule,MatInputModule,MatButtonModule,MatCardModule} from '@angular/material';
 @NgModule({
   imports: [
@@ -9,6 +10,7 @@ import { MatToolbarModule,MatIconModule,MatInputModule,MatButtonModule,MatCardMo
     MatButtonModule,
     MatCardModule,
     MatInputModule,
+    RouterModule
   ],
   exports:[
     CommonModule,
@@ -16,7 +18,8 @@ import { MatToolbarModule,MatIconModule,MatInputModule,MatButtonModule,MatCardMo
     MatIconModule,
     MatButtonModule,
     MatCardModule,
-    MatInputModule
+    MatInputModule,
+    RouterModule,
   ],
   declarations: []
 })
