@@ -26,6 +26,9 @@ mat-card {
     height: 25em;
     flex: 0 0 20em;
 }
+mat-icon {
+    align-self: flex-start;
+}
 form {
     display: flex;
     flex-direction: row;
