@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styles: []
 })
 export class AppComponent {
-  title = 'app';
+  private _dark = false;
+  get dark() {
+    return this._dark;
+  }
+  switchDarkTheme(dark: boolean) {
+    this._dark = dark;
+  }
 }
