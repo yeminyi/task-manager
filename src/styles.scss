@@ -15,17 +15,7 @@ main{
 .fill-remain-space{
     flex:1 1 auto;
 }
-.full-width{
-    width: 100%;
-}
-.text-right {
- margin: 10px;
- text-align: end;
-}
-mat-card {
-    height: 25em;
-    flex: 0 0 20em;
-}
+
 mat-icon {
     align-self: flex-start;
 }
@@ -37,11 +27,3 @@ form {
     height: 100%;
     width: 100%;
 }
-mat-sidenav-container.myapp-dark-theme {
-    background: black;
-  }
-  
-mat-sidenav {
-    width: 300px;
-  }
-  
