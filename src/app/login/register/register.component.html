@@ -1,0 +1,52 @@
+<form>
+    <mat-card >
+    <mat-card-header>
+      <mat-card-title></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-input-container class="full-width">
+            <input matInput placeholder="email" formControlName="email">
+          </mat-input-container>
+          <mat-input-container class="full-width">
+            <input matInput type="text" placeholder="Your Name" formControlName="name">
+          </mat-input-container>
+          <mat-input-container class="full-width">
+            <input matInput type="password" placeholder="Your Password" formControlName="password">
+          </mat-input-container>
+          <mat-input-container class="full-width">
+            <input matInput type="password" placeholder="Please confirm your pasword here" formControlName="repeat">
+          </mat-input-container>
+          <mat-grid-list cols="8" rowHeight="1:1">
+            <mat-grid-tile>1</mat-grid-tile>
+            <mat-grid-tile>2</mat-grid-tile>
+            <mat-grid-tile>3</mat-grid-tile>
+            <mat-grid-tile>4</mat-grid-tile>
+            <mat-grid-tile>5</mat-grid-tile>
+            <mat-grid-tile>6</mat-grid-tile>
+            <mat-grid-tile>7</mat-grid-tile>
+            <mat-grid-tile>8</mat-grid-tile>
+            <mat-grid-tile>9</mat-grid-tile>
+            <mat-grid-tile>10</mat-grid-tile>
+            <mat-grid-tile>11</mat-grid-tile>
+            <mat-grid-tile>12</mat-grid-tile>
+            <mat-grid-tile>13</mat-grid-tile>
+            <mat-grid-tile>14</mat-grid-tile>
+          </mat-grid-list>
+         
+    </mat-card-content>
+    <mat-card-actions class="text-right">
+        <p>Create new account <a routerLink="/register">Register</a></p>
+        <p>Forgot password <a href="">Find your password</a></p>
+      </mat-card-actions>
+    <!-- <mat-card-actions class="text-right">
+        <button mat-raised-button type="button" (click)="nextTab()">下一步</button>
+        <span class="fill-remaining-space"></span><br>
+        <span>
+          <span>Exist a Account?<a routerLink="/login">Login</a></span><br>
+          <span>Forgot your password <a routerLink="/forgot">Password?</a></span>
+        </span>
+    </mat-card-actions> -->
+  </mat-card>
+
+  </form>
+  
