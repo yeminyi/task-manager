@@ -25,6 +25,10 @@ projects=[
   ngOnInit() {
   }
   openNewProjectDialog(){
-    this.dialog.open(NewProjectComponent);
+    const dialogRef = this.dialog.open(NewProjectComponent, {data: 'this is test sent'});
+    dialogRef.afterClosed().subscribe(val => {
+     console.log(val);
+     
+    });
   }
 }
