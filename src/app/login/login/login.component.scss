@@ -6,6 +6,11 @@ mat-card {
     height: 25em;
     flex: 0 0 20em;
 }
-.full-width{
+form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
     width: 100%;
 }
