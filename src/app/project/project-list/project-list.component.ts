@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material';
 import { NewProjectComponent } from "../new-project/new-project.component";
+import { InviteComponent } from '../invite/invite.component';
 
 @Component({
   selector: 'app-project-list',
@@ -28,7 +29,9 @@ projects=[
     const dialogRef = this.dialog.open(NewProjectComponent, {data: 'this is test sent'});
     dialogRef.afterClosed().subscribe(val => {
      console.log(val);
-     
     });
+  }
+  launchInviteDialog(){
+    const dialogRef = this.dialog.open(InviteComponent);
   }
 }
