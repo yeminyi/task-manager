@@ -16,6 +16,7 @@ lists=
               {
                 id:1,
                 desc:'Task 1:to buy a coffee',
+                completed: true,
                 owner: {
                   id:1,
                   name:'jack',
@@ -26,20 +27,24 @@ lists=
               {
                 id:2,
                 desc:'Task2:to finish ppt',
+                completed: false,
+                priority:2,
                 owner: {
                   id:1,
                   name:'jack',
-                  avatar:'avatars:svg-11'
+                  avatar:'avatars:svg-10'
                 },
               dueDate: new Date(),
               },
               {
                 id:3,
-                desc:'Task 3:to fix a bug888',
+                desc:'Task 3:to fix a bug888', 
+                completed: false,
+                priority:1,
                 owner: {
                   id:1,
                   name:'jack',
-                  avatar:'avatars:svg-11'
+                  avatar:'avatars:svg-10'
                 },
               dueDate: new Date(),
               }
@@ -54,6 +59,8 @@ lists=
               {
                 id:1,
                 desc:'Task 4:to buy a coffee',
+                completed: false,
+                priority:3,
                 owner: {
                   id:1,
                   name:'jack',
@@ -64,20 +71,24 @@ lists=
               {
                 id:2,
                 desc:'Task5:to finish ppt',
+                completed: false,
+                priority:2,
                 owner: {
                   id:1,
                   name:'jack',
-                  avatar:'avatars:svg-11'
+                  avatar:'avatars:svg-1'
                 },
               dueDate: new Date(),
               },
               {
                 id:3,
                 desc:'Task 6:to fix a bug888',
+                completed: false,
+                priority:3,
                 owner: {
                   id:1,
                   name:'jack',
-                  avatar:'avatars:svg-11'
+                  avatar:'avatars:svg-12'
                 },
               dueDate: new Date(),
               }

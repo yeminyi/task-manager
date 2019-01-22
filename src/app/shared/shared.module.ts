@@ -10,7 +10,9 @@ import { MatToolbarModule,
          MatSlideToggleModule,
          MatGridListModule,
          MatAutocompleteModule,
-         MatMenuModule
+         MatMenuModule,
+         MatCheckboxModule,
+         MatTooltipModule
         } from '@angular/material';
 @NgModule({
   imports: [
@@ -25,7 +27,9 @@ import { MatToolbarModule,
     MatSlideToggleModule,
     MatGridListModule,
     MatAutocompleteModule,
-    MatMenuModule
+    MatMenuModule,
+    MatCheckboxModule,
+    MatTooltipModule,
   ],
   exports:[
     CommonModule,
@@ -39,7 +43,9 @@ import { MatToolbarModule,
     MatSlideToggleModule,
     MatGridListModule,
     MatAutocompleteModule,
-    MatMenuModule
+    MatMenuModule,
+    MatCheckboxModule,
+    MatTooltipModule
   ],
   declarations: []
 })
