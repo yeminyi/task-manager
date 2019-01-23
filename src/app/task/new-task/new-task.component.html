@@ -1,0 +1,41 @@
+<form >
+  <h2 mat-dialog-title>{{dialogTitle}}</h2>
+  <div mat-dialog-content>
+    <mat-input-container class="full-width">
+      <input matInput type="text" placeholder="Task Content" formControlName="desc">
+    </mat-input-container>
+    <mat-radio-group class="full-width" formControlName="priority">
+      <mat-radio-button *ngFor="let priorityItem of priorities" [value]="priorityItem.value">{{priorityItem.label}} 
+      </mat-radio-button>
+    </mat-radio-group>
+    <mat-input-container class="full-width">
+      <input matInput [matDatepicker]="dueDatePicker" placeholder="Please select the due date" formControlName="dueDate">
+      <mat-datepicker-toggle matSuffix [for]="dueDatePicker"></mat-datepicker-toggle>
+    </mat-input-container>
+    <mat-datepicker touchUi="true" #dueDatePicker></mat-datepicker>
+    <mat-input-container class="full-width">
+      <input matInput [matDatepicker]="reminderPicker" placeholder="Please select the reminder date" formControlName="reminder">
+      <mat-datepicker-toggle matSuffix [for]="reminderPicker"></mat-datepicker-toggle>
+    </mat-input-container>
+    <mat-datepicker touchUi="true" #reminderPicker></mat-datepicker>
+    
+  </div>
+  <div mat-dialog-actions>
+    <div class="fill" *ngIf="notConfirm else confirm">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">
+        Save
+      </button>
+      <button mat-dialog-close mat-raised-button type="button">Close</button>
+      <span class="fill-remaining-space">
+      </span>
+      <button mat-button color="warn" type="button" [disabled]="delInvisible" (click)="onDelClick(false)">Delete</button>
+    </div>
+  </div>
+</form>
+<ng-template #confirm>
+  <div class="fill">
+    <span class="fill-remaining-space mat-body-2">Confirm to delete?</span>
+    <button mat-button color="warn" type="button" (click)="reallyDel()">Yes</button>
+    <button mat-raised-button color="primary" type="button" (click)="onDelClick(true)">No</button>
+  </div>
+</ng-template>
