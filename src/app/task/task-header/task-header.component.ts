@@ -8,11 +8,15 @@ import { Component, OnInit, Input,Output,EventEmitter} from '@angular/core';
 export class TaskHeaderComponent implements OnInit {
   @Input() header="";
   @Output() newTask=new EventEmitter<void>();
+  @Output() copyTask=new EventEmitter<void>();
   constructor() { }
 
   ngOnInit() {
   }
   addNewTask(){
     this.newTask.emit();
+  }
+  onMoveAllTasks(){
+    this.copyTask.emit();
   }
 }
