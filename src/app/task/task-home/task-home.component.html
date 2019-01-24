@@ -7,6 +7,7 @@
       (newTask)="launchNewTaskDialog()"
       (copyTask)="launchCopyTaskDialog()"
       (deleteTask)="launchDeleteTaskDialog()"
+      (changeListName)="launchEditTaskListNameDialog()"
     >
     </app-task-header>
     <app-task-item
@@ -16,6 +17,6 @@
     </app-task-item>
   </app-task-list>
 </div>
-<button mat-fab (click)="handleNewTaskList($event)" type="button" class="fab-button">
+<button mat-fab (click)="launchNewTaskListDialog()" type="button" class="fab-button">
   <mat-icon>add</mat-icon>
 </button>
