@@ -7,7 +7,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
   styleUrls: ['./new-project.component.scss']
 })
 export class NewProjectComponent implements OnInit {
-
+  dialogTitle='';
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<NewProjectComponent>) {
@@ -15,6 +15,7 @@ export class NewProjectComponent implements OnInit {
 }
 
   ngOnInit() {
+    this.dialogTitle=this.data.title;
     console.log(JSON.stringify(this.data));
     
   }

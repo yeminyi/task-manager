@@ -20,7 +20,7 @@ export class NewTaskComponent implements OnInit {
       value:3
     }
   ];
-  dialogTitle="";
+  dialogTitle='';
   constructor(@Inject(MAT_DIALOG_DATA) private data) { }
   ngOnInit() {
     this.dialogTitle=this.data.title;
