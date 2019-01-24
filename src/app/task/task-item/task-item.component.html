@@ -9,6 +9,7 @@
   <mat-checkbox
     class="status"
     [checked]="item.completed"
+    (click)="onCheckboxClick($event)"
   >
   </mat-checkbox>
   <div mat-line [matTooltip]="item.desc" class="content" [ngClass]="{'completed': item.completed}">

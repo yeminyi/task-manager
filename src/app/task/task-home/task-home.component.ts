@@ -103,9 +103,12 @@ lists=
   ngOnInit() { 
   }
   launchNewTaskDialog(){
-    this.dialog.open(NewTaskComponent);
+    const dialogRef=this.dialog.open(NewTaskComponent,{data:{title:'New Task'}});
   }
   launchCopyTaskDialog(){
     const dialogRef=this.dialog.open(CopyTaskComponent,{data:{lists:this.lists}});
+  }
+  launchItemDialog(task){
+    const dialogRef=this.dialog.open(NewTaskComponent,{data:{title:'Edit Task',task:task}});
   }
 }
