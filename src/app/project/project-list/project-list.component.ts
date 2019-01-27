@@ -26,9 +26,6 @@ projects=[
   },
 ];
   @HostBinding('@routeAnim') state;
-  // @HostBinding('@routeAnim') state = 'void';
-  // projects$: Observable<Project[]>;
-  listAnim$: Observable<number>;
   constructor(private dialog:MatDialog) { }
 
   ngOnInit() {

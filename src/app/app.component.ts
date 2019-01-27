@@ -1,37 +1,9 @@
 import { Component } from '@angular/core';
 import { OverlayContainer } from '@angular/cdk/overlay';
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition,
-} from '@angular/animations';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [
-    trigger('square', [
-    
-      state('green', style({
-        height: '200px',
-        opacity: 1,
-        backgroundColor: 'yellow'
-      })),
-      state('red', style({
-        height: '100px',
-        opacity: 0.5,
-        backgroundColor: 'red'
-      })),
-      transition('green => red', [
-        animate('1s')
-      ]),
-      transition('red => green', [
-        animate('0.5s')
-      ]),
-    ]),
-  ],
 })
 
 export class AppComponent {
@@ -45,7 +17,5 @@ export class AppComponent {
     this._dark = dark;
     this.oc.getContainerElement().classList.add( dark?'myapp-dark-theme':null);
   }
-  onClick(){
-    this.squareState=this.squareState==='red'?'green':'red'
-  }
+
 }
