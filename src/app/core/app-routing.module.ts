@@ -1,22 +1,25 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from "./app.component";
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+
 
 const routes: Routes = [
     { 
         path: '',
         redirectTo:'/login',
-        pathMatch:'full' 
+        pathMatch:'full' ,
+        
     },
     { 
         path: 'project',
         redirectTo:'/project',
-        pathMatch:'full' 
+        pathMatch:'full' ,
+        data: {animation: 'project'} 
     },
     { 
         path: 'tasklist',
         redirectTo:'/tasklists',
-        pathMatch:'full' 
+        pathMatch:'full' ,
+        data: {animation: 'tasklists'} 
     }
 ];
 

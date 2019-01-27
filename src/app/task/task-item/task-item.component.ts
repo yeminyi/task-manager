@@ -7,10 +7,10 @@ import { itemAnim } from "../../anims/item.anim";
   animations:[itemAnim]
 })
 export class TaskItemComponent implements OnInit {
-@Input() item;
-@Input() avatar;
-@Output() itemClick=new EventEmitter<void>();
-widerPriority="in";
+  @Input() item;
+  @Input() avatar;
+  @Output() itemClick=new EventEmitter<void>();
+  widerPriority="in";
   constructor() { }
 
   @HostListener('mouseenter')
