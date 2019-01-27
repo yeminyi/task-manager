@@ -5,6 +5,7 @@
     'priority-important': item.priority === 2,
     'priority-emergency': item.priority === 1}"
   (click)="onItemClick()"
+  [@item]="widerPriority"
 >
   <mat-checkbox
     class="status"
