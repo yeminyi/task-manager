@@ -7,9 +7,9 @@
   (click)="onItemClick()"
   [@item]="widerPriority"
   [app-draggable]="true"
-
+  [dragTag]="'task-item'"
   [draggedClass]="'drag-start'"
-  
+  [dragData]="item"
 >
   <mat-checkbox
     class="status"
