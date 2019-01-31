@@ -1,4 +1,12 @@
-  .list-container {
+
+.drag-start {
+  opacity: 0.5;
+  border: #ff525b dashed 2px;
+}
+.drag-enter {
+  background-color: dimgray;
+}
+.list-container {
     flex: 0 0 360px;
     overflow-y: auto;
     overflow-x: hidden;
