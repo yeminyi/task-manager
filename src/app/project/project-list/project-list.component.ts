@@ -15,11 +15,13 @@ import {Observable} from 'rxjs/Observable';
 export class ProjectListComponent implements OnInit {
 projects=[
   {
+    "id":123,
     "name":"project1",
     "desc":"this is a project 1",
     "coverImg":"assets/img/covers/0.jpg"
   },
   {
+    "id":1233,
     "name":"project2",
     "desc":"this is a project 2",
     "coverImg":"assets/img/covers/1.jpg"
@@ -29,13 +31,13 @@ projects=[
   constructor(private dialog:MatDialog) { }
 
   ngOnInit() {
-    // console.log(this.state);
     
   }
   openNewProjectDialog(){
     const dialogRef = this.dialog.open(NewProjectComponent, {data: {title:'New Project'}});
     dialogRef.afterClosed().subscribe(val => {
     console.log(val);
+    this.projects=[...this.projects,{id:3,name:'a new project',desc:'this is a new project',coverImg:'assets/img/covers/4.jpg'}];
     });
   }
   launchInviteDialog(){
@@ -44,10 +46,11 @@ projects=[
   launchEditDialog(){
     const dialogRef=this.dialog.open(NewProjectComponent,{data:{title:'Edit Project'}});
   }
-  launchDeleteDialog(){
+  launchDeleteDialog(project){
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {data: {title:'Delete the Project?',content:'Do you confirm to delete it?'}});
     dialogRef.afterClosed().subscribe(val => {
     console.log(val);
+    this.projects=this.projects.filter(p=>p.id!==project.id);
     });
   }
 }
