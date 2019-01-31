@@ -8,7 +8,7 @@ export class DropDirective {
 
   @Output() dropped: EventEmitter<DragData> = new EventEmitter();
   @Input() dropTags: string[] = [];
-  @Input() dragEnterClass = '';
+  @Input() dragEnterClass : string;
   private drag$;
 
   constructor(
@@ -23,7 +23,8 @@ export class DropDirective {
   onDragEnter(ev: Event) {
     ev.preventDefault();
     ev.stopPropagation();
-    if (this.el.nativeElement === ev.target) {
+    // if (this.el.nativeElement === ev.target) {
+      if (this.el.nativeElement.contains(event.target)){
       this.drag$.subscribe(dragData => {
         if (this.dropTags.indexOf(dragData.tag) > -1) {
           this.rd.addClass(this.el.nativeElement, this.dragEnterClass);
@@ -53,7 +54,8 @@ export class DropDirective {
   onDragLeave(ev: Event) {
     ev.preventDefault();
     ev.stopPropagation();
-    if (this.el.nativeElement === ev.target) {
+     if (this.el.nativeElement.contains(event.target)){
+    // if (this.el.nativeElement === ev.target) {
       this.drag$.subscribe(dragData => {
         if (this.dropTags.indexOf(dragData.tag) > -1) {
           this.rd.removeClass(this.el.nativeElement, this.dragEnterClass);
@@ -66,7 +68,9 @@ export class DropDirective {
   onDrop(ev: Event) {
     ev.preventDefault();
     ev.stopPropagation();
-    if (this.el.nativeElement === ev.target) {
+    if (this.el.nativeElement.contains(event.target))
+    // if (this.el.nativeElement === ev.target)
+     {
       this.drag$.subscribe(dragData => {
         if (this.dropTags.indexOf(dragData.tag) > -1) {
           this.rd.removeClass(this.el.nativeElement, this.dragEnterClass);

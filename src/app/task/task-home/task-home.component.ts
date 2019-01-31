@@ -137,4 +137,20 @@ lists=
     console.log(val);
     })
   }
+  
+  handleMove(srcData, list) {
+    switch (srcData.tag) {
+      case 'task-item': {
+        console.log('item');
+        
+        break;
+      }
+      case 'task-list': {
+        console.log('list');
+        break;
+      }
+      default:
+        break;
+    }
+  }
 }
