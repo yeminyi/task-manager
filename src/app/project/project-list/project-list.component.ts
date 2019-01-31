@@ -1,4 +1,4 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
+import { Component, OnInit, HostBinding,ChangeDetectionStrategy } from '@angular/core';
 import {MatDialog} from '@angular/material';
 import { NewProjectComponent } from "../new-project/new-project.component";
 import { InviteComponent } from '../invite/invite.component';
@@ -10,7 +10,8 @@ import {Observable} from 'rxjs/Observable';
   selector: 'app-project-list',
   templateUrl: './project-list.component.html',
   styleUrls: ['./project-list.component.scss'],
-  animations:[slideToRight,listAnimation]
+  animations:[slideToRight,listAnimation],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProjectListComponent implements OnInit {
 projects=[
