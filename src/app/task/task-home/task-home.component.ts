@@ -17,7 +17,7 @@ lists=
 [
   {
       id:1,
-      name:'To Do',
+      name:'To Do List',
       order:1,
       tasks:
       [
@@ -62,7 +62,7 @@ lists=
     },
     {
       id:2,
-      name:'Working On',
+      name:'Working On List',
       order:2,
       tasks:
       [
@@ -109,9 +109,7 @@ lists=
   @HostBinding('@routeAnim') state;
   constructor(private dialog: MatDialog) { }
 
-  ngOnInit() { 
-    console.log(this.state);
-    
+  ngOnInit() {     
   }
   launchNewTaskDialog(){
     const dialogRef=this.dialog.open(NewTaskComponent,{data:{title:'New Task'}});
@@ -145,7 +143,6 @@ lists=
     switch (srcData.tag) {
       case 'task-item': {
         console.log('item');
-        
         break;
       }
       case 'task-list': {

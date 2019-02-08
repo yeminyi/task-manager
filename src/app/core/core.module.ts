@@ -1,4 +1,4 @@
-import {NgModule, Optional, SkipSelf} from '@angular/core';
+import { NgModule, Optional, SkipSelf} from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -7,14 +7,16 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppRoutingModule } from "./app-routing.module";
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
-import {loadSvgResources} from '../utils/svg.util';
+import { loadSvgResources} from '../utils/svg.util';
 import { HttpModule } from "@angular/http";
+import { ServicesModule } from "../services/services.module";
 @NgModule({
   imports: [
     SharedModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpModule,
+    ServicesModule.forRoot(),
   ],
   exports: [
     HeaderComponent,
