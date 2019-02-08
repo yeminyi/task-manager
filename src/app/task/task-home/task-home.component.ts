@@ -138,7 +138,10 @@ lists=
     console.log(val);
     })
   }
-  
+  handleQuickNewTask(desc:string){
+    console.log(desc);
+    
+  }
   handleMove(srcData, list) {
     switch (srcData.tag) {
       case 'task-item': {

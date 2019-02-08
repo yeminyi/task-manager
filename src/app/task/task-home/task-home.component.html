@@ -20,6 +20,7 @@
       (changeListName)="launchEditTaskListNameDialog()"
     >
     </app-task-header>
+    <app-shortcut-task (newTask)="handleQuickNewTask($event)"></app-shortcut-task>
     <app-task-item
       *ngFor="let task of list.tasks"
       (itemClick)="launchItemDialog()"
