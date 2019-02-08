@@ -17,7 +17,8 @@ lists=
 [
   {
       id:1,
-      name:'todo',
+      name:'To Do',
+      order:1,
       tasks:
       [
               {
@@ -61,7 +62,8 @@ lists=
     },
     {
       id:2,
-      name:'working on ',
+      name:'Working On',
+      order:2,
       tasks:
       [
               {
@@ -148,6 +150,10 @@ lists=
       }
       case 'task-list': {
         console.log('list');
+        const srcList=srcData.data;
+        const tempOrder=srcList.order;
+        srcList.order=list.order;
+        list.order=tempOrder;
         break;
       }
       default:
