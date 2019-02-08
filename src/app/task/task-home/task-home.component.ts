@@ -24,6 +24,7 @@ lists=
                 id:1,
                 desc:'Task 1:to buy a coffee',
                 completed: true,
+                priority:2,
                 owner: {
                   id:1,
                   name:'jack',
