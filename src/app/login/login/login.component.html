@@ -23,12 +23,12 @@
   <mat-card-header>
     <mat-card-title> </mat-card-title>
     <mat-card-subtitle>
-      杰出的人有着目标，其他人只有愿望。
+      {{quote.cn}}
     </mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image src="/assets/20177128502587.jpg">
+  <img mat-card-image [src]="quote.pic">
   <mat-card-content>
-    <p> Great minds have purpose, others have wishes.</p>
+    <p>{{quote.en}}</p>
   </mat-card-content>
 </mat-card>
 </form>
