@@ -1,15 +1,15 @@
 import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Observable} from 'rxjs/Observable';
+// import {Observable} from 'rxjs/Observable';
 import {Quote} from '../../domain/quote.model';
 import { QuoteService } from 'src/app/services/quote.service';
+import { map } from 'rxjs/operators';
 
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent implements OnInit {
   form: FormGroup;
@@ -33,8 +33,6 @@ export class LoginComponent implements OnInit {
       email: ['amy@m1y.tech', Validators.compose([Validators.required, Validators.email])],
       password: ['amy123456', Validators.required]
     });
-    console.log(this.quote.pic);
-    
   }
 
   onSubmit({value, valid}, e: Event) {

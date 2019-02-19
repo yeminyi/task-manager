@@ -10,12 +10,15 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { loadSvgResources} from '../utils/svg.util';
 import { HttpModule } from "@angular/http";
 import { ServicesModule } from "../services/services.module";
+import '../utils/debug.util';
+import { HttpClientModule } from '@angular/common/http'
 @NgModule({
   imports: [
     SharedModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpModule,
+    HttpClientModule,
     ServicesModule.forRoot(),
   ],
   exports: [
@@ -28,7 +31,7 @@ import { ServicesModule } from "../services/services.module";
     {
       provide: 'BASE_CONFIG',
       useValue: {
-        uri: 'http://localhost:3002'
+        uri: 'http://localhost:3000'
       }
     }
   ],
