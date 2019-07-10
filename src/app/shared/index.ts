@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
+import {TranslateModule} from "@ngx-translate/core";
 import {
   MatToolbarModule,
   MatSidenavModule,
@@ -49,7 +50,8 @@ const MODULES = [
   ReactiveFormsModule,
   FormsModule,
   FlexLayoutModule,
-  DirectivesModule
+  DirectivesModule,
+  TranslateModule
 ];
 
 const DECLARATIONS = [

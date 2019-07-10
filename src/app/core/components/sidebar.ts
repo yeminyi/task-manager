@@ -7,7 +7,7 @@ import {Project} from '../../domain';
   template: `
     <div *ngIf="auth">
       <mat-nav-list>
-        <h3 matSubheader>项目</h3>
+        <h3 matSubheader>{{'project' | translate}}</h3>
         <mat-list-item [routerLink]="['/projects']" (click)="handleClicked($event)">
           <mat-icon matListIcon svgIcon="projects"></mat-icon>
           <span matLine>项目首页</span>

@@ -98,6 +98,8 @@ export class CalendarHomeComponent {
   ) {
     this.viewDate = new Date();
     this.view$ = this.route.paramMap.pipe(map(p => <string>p.get('view')));
+    console.log(this.view$);
+
     this.events$ = this.store$.pipe(
       select(fromRoot.getAuthUser),
       switchMap(user => this.service$.getUserTasks(<string>user.id))
