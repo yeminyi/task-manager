@@ -72,7 +72,7 @@ export class CoreModule {
     sanitizer: DomSanitizer
   ) {
     if (parentModule) {
-      throw new Error('CoreModule 已经装载，请仅在 AppModule 中引入该模块。');
+      throw new Error('CoreModule already loaded，pls only add it in the AppModule.');
     }
     registerLocaleData(localeZh);
     loadSvgResources(iconRegistry, sanitizer);

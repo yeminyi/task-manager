@@ -2,6 +2,7 @@
       "language": "EN",
       "projectname": "Task Manager",
       "project": "Project",
-      "login":"Login"
-
+      "login":"Login",
+      "signout":"Sign out",
+      "darktheme":"Dark Theme"
 }
