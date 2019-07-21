@@ -22,6 +22,8 @@
       "login.find": "Find your password",
       "login.youremail": "Your email",
       "login.yourpsw": "Your password",
+      "login.user_erro": "Please input your email",
+      "login.password_erro": "Please check your password,it is not right",
       "forgot.youremail": "Your email which is used for registration"
 
 }

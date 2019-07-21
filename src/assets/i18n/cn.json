@@ -22,6 +22,8 @@
   "login.find": "找回密码",
   "login.youremail": "您的email",
   "login.yourpsw": "您的password",
+  "login.user_erro": "用户名是必填项哦",
+  "login.password_erro": "密码不正确哦",
   "forgot.youremail": "注册时使用的电子邮箱"
 
 }

@@ -18,11 +18,11 @@ import * as actions from '../../actions/quote.action';
       <mat-card-content>
         <mat-form-field class="full-width">
           <input matInput type="text" placeholder="{{'login.youremail' | translate}}" formControlName="email">
-          <mat-error>用户名是必填项哦</mat-error>
+          <mat-error>{{'login.user_erro' | translate}}</mat-error>
         </mat-form-field>
         <mat-form-field class="full-width">
           <input matInput type="password" placeholder="{{'login.yourpsw' | translate}}" formControlName="password">
-          <mat-error>密码不正确哦</mat-error>
+          <mat-error>{{'login.password_erro' | translate}}</mat-error>
         </mat-form-field>
         <button mat-raised-button type="submit" [disabled]="!form.valid">{{'login.signin' | translate}}</button>
       </mat-card-content>
