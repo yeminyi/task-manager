@@ -4,5 +4,15 @@
       "project": "Project",
       "login":"Login",
       "signout":"Sign out",
-      "darktheme":"Dark Theme"
+      "darktheme":"Dark Theme",
+      "side.project": "Your Project",
+      "side.project_desc": "To see your projects here",
+      "side.calendar": "Calendar",
+      "side.monthly": "Monthly",
+      "side.weekly": "Weekly",
+      "side.daily": "Daily",
+      "side.monthly_desc": "Your tasks in monthly view here",
+      "side.weekly_desc": "Your tasks in weekly view here",
+      "side.daily_desc": "Your tasks in daily view here"
+
 }

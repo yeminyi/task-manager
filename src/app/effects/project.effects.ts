@@ -229,9 +229,9 @@ export class ProjectEffects {
 
   /**
    *
-   * @param actions$ action 流
-   * @param service  注入 ProjectService
-   * @param store$ 注入 redux store
+   * @param actions$ action
+   * @param service  inject ProjectService
+   * @param store$ inject redux store
    */
   constructor(
     private actions$: Actions,

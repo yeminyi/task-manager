@@ -8,7 +8,7 @@ import { AuthEffects } from './auth.effects';
 import { AuthService } from '../services/auth.service';
 import * as actions from '../actions/auth.action';
 
-describe('测试 AuthEffects', () => {
+describe('Testing AuthEffects', () => {
   let effects: AuthEffects;
   let actions$: Observable<any>;
 
@@ -42,8 +42,8 @@ describe('测试 AuthEffects', () => {
     };
   }
 
-  describe('登录逻辑：login$', () => {
-    it('登录成功发送 LoginSuccessAction', fakeAsync(() => {
+  describe('Testing Login：login$', () => {
+    it('If login successfully sending: LoginSuccessAction', fakeAsync(() => {
       const auth = {
         token: '',
         user: {

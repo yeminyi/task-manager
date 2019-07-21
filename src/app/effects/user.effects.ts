@@ -94,9 +94,9 @@ export class UserEffects {
   );
 
   /**
-   * 任务的 Effects
-   * @param actions$ 注入 action 数据流
-   * @param service$ 注入任务服务
+   * task Effects
+   * @param actions$ inject actions
+   * @param service$ inject the service
    */
   constructor(private actions$: Actions, private service$: UserService) {}
 }

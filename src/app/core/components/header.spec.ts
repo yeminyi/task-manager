@@ -8,7 +8,7 @@ import {
 } from '@angular/material';
 import { HeaderComponent } from './header';
 
-describe('测试顶部组件：HeaderComponent', () => {
+describe('Test for HeaderComponent：HeaderComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
 
@@ -30,12 +30,12 @@ describe('测试顶部组件：HeaderComponent', () => {
     fixture.detectChanges();
   });
 
-  it('组件应该被创建', () => {
+  it('The component should be created', () => {
     expect(component).toBeTruthy();
   });
 
-  it('组件模板的元素应该被正确创建', () => {
+  it('The element should be created in the component', () => {
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('span').innerText).toContain('企业协作平台');
+    expect(compiled.querySelector('span').innerText).toContain('Task Manager');
   });
 });

@@ -109,9 +109,9 @@ export class TaskEffects {
 
   /**
    * 任务的 Effects
-   * @param actions$ 注入 action 数据流
-   * @param service$ 注入任务服务
-   * @param store$ 注入 redux store
+   * @param actions$ inject actions
+   * @param service$ inject the taskservice
+   * @param store$ inject redux store
    */
   constructor(private actions$: Actions, private service$: TaskService) {}
 }

@@ -5,7 +5,7 @@ import {RouterModule} from '@angular/router';
 import {CoreModule} from '../';
 import {AppComponent} from './app';
 
-describe('测试根模块：AppComponent', () => {
+describe('Test for Appcomponent：AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [MatSidenavModule, RouterModule.forRoot([]), CoreModule],
@@ -16,13 +16,13 @@ describe('测试根模块：AppComponent', () => {
     }).compileComponents();
   }));
 
-  it('应该创建应用', async(() => {
+  it('create the app', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
 
-  it('应该包含一个 .site 的元素', async(() => {
+  it('this should include the element of .site', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;

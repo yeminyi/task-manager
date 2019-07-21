@@ -129,10 +129,10 @@ export class TaskListEffects {
   );
 
   /**
-   * 任务列表的 Effects
-   * @param actions$ 注入 action 数据流
-   * @param service$ 注入任务列表服务
-   * @param store$ 注入 redux store
+   * Tasklists' Effects
+   * @param actions$ inject action
+   * @param service$ inject the tasklist service
+   * @param store$ inject redux store
    */
   constructor(
     private actions$: Actions,
