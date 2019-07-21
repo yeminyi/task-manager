@@ -15,7 +15,7 @@ import * as fromRoot from '../../reducers';
       </mat-card-header>
       <mat-card-content>
         <mat-form-field class="full-width">
-          <input matInput placeholder="注册时使用的电子邮箱" formControlName="email">
+          <input matInput placeholder="{{'forgot.youremail' | translate}}" formControlName="email">
         </mat-form-field>
         <button mat-raised-button type="submit" [disabled]="!form.valid">{{'login.find' | translate}}</button>
       </mat-card-content>

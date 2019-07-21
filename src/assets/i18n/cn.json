@@ -17,8 +17,11 @@
   "login.forgotpsw": "忘记密码",
   "login.noaccount": "还没有账户",
   "login.signup": "注册",
-  "login.signin": "登陆",
+  "login.signin": "登录",
   "login.existaccount": "已有账户",
-  "login.find": "找回密码"
+  "login.find": "找回密码",
+  "login.youremail": "您的email",
+  "login.yourpsw": "您的password",
+  "forgot.youremail": "注册时使用的电子邮箱"
 
 }

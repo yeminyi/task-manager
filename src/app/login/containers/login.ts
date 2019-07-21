@@ -17,23 +17,23 @@ import * as actions from '../../actions/quote.action';
       </mat-card-header>
       <mat-card-content>
         <mat-form-field class="full-width">
-          <input matInput type="text" placeholder="您的Email" formControlName="email">
+          <input matInput type="text" placeholder="{{'login.youremail' | translate}}" formControlName="email">
           <mat-error>用户名是必填项哦</mat-error>
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput type="password" placeholder="您的密码" formControlName="password">
+          <input matInput type="password" placeholder="{{'login.yourpsw' | translate}}" formControlName="password">
           <mat-error>密码不正确哦</mat-error>
         </mat-form-field>
-        <button mat-raised-button type="submit" [disabled]="!form.valid">登录</button>
+        <button mat-raised-button type="submit" [disabled]="!form.valid">{{'login.signin' | translate}}</button>
       </mat-card-content>
       <mat-card-actions class="text-right">
-        <p>还没有账户？ <a routerLink="/register">注册</a></p>
-        <p>忘记 <a routerLink="/forgot">密码？</a></p>
+        <p>{{'login.noaccount' | translate}}? <a routerLink="/register">{{'login.signup' | translate}}</a></p>
+        <p> <a routerLink="/forgot">{{'login.forgotpsw' | translate}}?</a></p>
       </mat-card-actions>
     </mat-card>
     <mat-card fxFlex="0 1 20rem">
       <mat-card-header>
-        <mat-card-title> 佳句</mat-card-title>
+        <mat-card-title> </mat-card-title>
         <mat-card-subtitle>
           {{ (quote$ | async)?.cn }}
         </mat-card-subtitle>

@@ -19,6 +19,9 @@
       "login.signup": "Sign Up",
       "login.signin": "Sign In",
       "login.existaccount": "Exist an account",
-      "login.find": "Find your password"
+      "login.find": "Find your password",
+      "login.youremail": "Your email",
+      "login.yourpsw": "Your password",
+      "forgot.youremail": "Your email which is used for registration"
 
 }
