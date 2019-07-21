@@ -13,6 +13,12 @@
       "side.daily": "Daily",
       "side.monthly_desc": "Your tasks in monthly view here",
       "side.weekly_desc": "Your tasks in weekly view here",
-      "side.daily_desc": "Your tasks in daily view here"
+      "side.daily_desc": "Your tasks in daily view here",
+      "login.forgotpsw": "Forgot your password",
+      "login.noaccount": "No account",
+      "login.signup": "Sign Up",
+      "login.signin": "Sign In",
+      "login.existaccount": "Exist an account",
+      "login.find": "Find your password"
 
 }

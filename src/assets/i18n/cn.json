@@ -13,5 +13,12 @@
   "side.daily": "日视图",
   "side.monthly_desc": "按月方式查看事件",
   "side.weekly_desc": "按星期方式查看事件",
-  "side.daily_desc": "按天方式查看事件"
+  "side.daily_desc": "按天方式查看事件",
+  "login.forgotpsw": "忘记密码",
+  "login.noaccount": "还没有账户",
+  "login.signup": "注册",
+  "login.signin": "登陆",
+  "login.existaccount": "已有账户",
+  "login.find": "找回密码"
+
 }

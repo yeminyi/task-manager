@@ -11,17 +11,17 @@ import * as fromRoot from '../../reducers';
   <form fxLayout="row" [formGroup]="form" (ngSubmit)="onSubmit(form)">
     <mat-card fxFlex>
       <mat-card-header>
-        <mat-card-title> 忘记密码：</mat-card-title>
+        <mat-card-title> {{'login.forgotpsw' | translate}}：</mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <mat-form-field class="full-width">
           <input matInput placeholder="注册时使用的电子邮箱" formControlName="email">
         </mat-form-field>
-        <button mat-raised-button type="submit" [disabled]="!form.valid">找回密码</button>
+        <button mat-raised-button type="submit" [disabled]="!form.valid">{{'login.find' | translate}}</button>
       </mat-card-content>
       <mat-card-actions class="text-right">
-        <p>还没有账户？ <a routerLink="/register">注册</a></p>
-        <p>已有账户 <a routerLink="/login">登录</a></p>
+        <p>{{'login.noaccount' | translate}}?<a routerLink="/register">{{'login.signup' | translate}}</a></p>
+        <p>{{'login.existaccount' | translate}} <a routerLink="/login">{{'login.signin' | translate}}</a></p>
       </mat-card-actions>
     </mat-card>
   </form>

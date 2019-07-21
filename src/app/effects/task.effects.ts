@@ -108,7 +108,7 @@ export class TaskEffects {
   );
 
   /**
-   * 任务的 Effects
+   * Task Effects
    * @param actions$ inject actions
    * @param service$ inject the taskservice
    * @param store$ inject redux store
