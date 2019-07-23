@@ -7,7 +7,7 @@ import {
 import { AuthService } from './auth.service';
 import { User } from '../domain';
 
-describe('测试鉴权服务：AuthService', () => {
+describe('Testing for the Authservice：AuthService', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
@@ -22,7 +22,7 @@ describe('测试鉴权服务：AuthService', () => {
     }
   ));
 
-  it('注册后应该返回一个 Observable<Auth>', async(
+  it('After register should return an Observable<Auth>', async(
     inject(
       [AuthService, HttpTestingController],
       (service: AuthService, mockBackend: HttpTestingController) => {
