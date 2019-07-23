@@ -11,7 +11,7 @@ import { defaultRouteAnim, listAnimation } from '../../anim';
 import { Project, User } from '../../domain';
 import { map, take, switchMap, reduce, filter } from 'rxjs/operators';
 import { range } from 'rxjs';
-
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-project-list',
   template: `
@@ -57,7 +57,8 @@ export class ProjectListComponent {
 
   constructor(
     private store$: Store<fromRoot.State>,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    public translate: TranslateService
   ) {
     this.store$.dispatch(new actions.LoadProjectsAction());
     this.projects$ = this.store$.pipe(select(fromRoot.getProjects));
@@ -136,9 +137,9 @@ export class ProjectListComponent {
 
   openDeleteDialog(project: Project) {
     const confirm = {
-      title: '删除项目：',
-      content: '确认要删除该项目？',
-      confirmAction: '确认删除'
+      title: this.translate.instant('project.delete.title')+project.name,
+      content:this.translate.instant('project.del.content'),
+      confirmAction: this.translate.instant('project.del.confirm'),
     };
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       data: { dialog: confirm }

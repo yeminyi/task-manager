@@ -28,15 +28,15 @@ import {Project} from '../../domain';
       <mat-card-actions>
         <button mat-button (click)="openUpdateDialog($event)">
           <mat-icon>note</mat-icon>
-          <span>编辑</span>
+          <span>{{'edit' | translate}}</span>
         </button>
         <button mat-button (click)="openInviteDialog($event)">
           <mat-icon>group_add</mat-icon>
-          <span>邀请</span>
+          <span>{{'invite' | translate}}</span>
         </button>
         <button mat-button (click)="openDeleteDialog($event)">
           <mat-icon>delete</mat-icon>
-          <span>删除</span>
+          <span>{{'delete' | translate}}</span>
         </button>
       </mat-card-actions>
     </mat-card>

@@ -104,6 +104,15 @@
         "t20MMpr"
       ],
       "id": "jEcsCQK"
+    },
+    {
+      "name": "test project1",
+      "desc": "test project description",
+      "coverImg": "/assets/img/covers/5.jpg",
+      "members": [
+        "37489e0c-df34-c261-71c4-ce75357e3035"
+      ],
+      "id": "ReBFDqd"
     }
   ],
   "taskLists": [
@@ -154,6 +163,24 @@
       "projectId": "jEcsCQK",
       "order": 3,
       "id": "NsFtTFY"
+    },
+    {
+      "name": "待办",
+      "projectId": "ReBFDqd",
+      "order": 1,
+      "id": "YX_W2bl"
+    },
+    {
+      "name": "进行中",
+      "projectId": "ReBFDqd",
+      "order": 2,
+      "id": "WzdD1D8"
+    },
+    {
+      "name": "已完成",
+      "projectId": "ReBFDqd",
+      "order": 3,
+      "id": "mgLGHGx"
     }
   ],
   "tasks": [
@@ -206,7 +233,7 @@
     {
       "taskListId": "BylTyXiM-b",
       "desc": "登录鉴权过程中需携带 token 访问 API",
-      "completed": false,
+      "completed": true,
       "ownerId": "BkkDvwee-",
       "participantIds": [],
       "dueDate": "2017-07-03T16:00:00.000Z",
@@ -317,6 +344,15 @@
       "hasDueDate": false,
       "hasCreateDate": true,
       "hasPriority": true
+    },
+    {
+      "projectId": "ReBFDqd",
+      "sort": "default",
+      "hasOwner": true,
+      "hasDueDate": true,
+      "hasCreateDate": false,
+      "hasPriority": false,
+      "id": "rMMPQST"
     }
   ],
   "taskHistory": [
@@ -419,6 +455,20 @@
       },
       "date": "2019-07-09T03:51:24.265Z",
       "id": "CWQKDh5"
+    },
+    {
+      "taskId": "4",
+      "operator": {
+        "id": "37489e0c-df34-c261-71c4-ce75357e3035",
+        "email": "amy@126.com",
+        "name": "Amy",
+        "avatar": "avatars:svg-1"
+      },
+      "operation": {
+        "type": "completeTask"
+      },
+      "date": "2019-07-23T09:33:16.932Z",
+      "id": "VbCyqNs"
     }
   ],
   "quotes": [
