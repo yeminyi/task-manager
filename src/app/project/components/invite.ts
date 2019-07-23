@@ -12,9 +12,9 @@ import {User} from '../../domain';
       </app-chips-list>
       <div mat-dialog-actions>
         <button mat-raised-button color="primary" type="submit" [disabled]="!f.valid">
-          保存
+        {{'save' | translate}}
         </button>
-        <button matDialogClose mat-raised-button type="button">关闭</button>
+        <button matDialogClose mat-raised-button type="button">{{'close' | translate}}</button>
       </div>
     </form>
     `,

@@ -2,6 +2,7 @@ import {ChangeDetectionStrategy, Component, Inject, OnInit} from '@angular/core'
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {Observable} from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-new-project',
@@ -10,17 +11,17 @@ import {Observable} from 'rxjs';
       <h3 matDialogTitle>{{ dialogTitle }}</h3>
       <div matDialogContent>
         <mat-form-field class="full-width">
-          <input matInput placeholder="项目名称" formControlName="name">
+          <input matInput placeholder="{{'project.name' | translate}}" formControlName="name">
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput placeholder="项目简介（选填）" formControlName="desc">
+          <input matInput placeholder="{{'project.description' | translate}}" formControlName="desc">
         </mat-form-field>
         <app-image-list-select [cols]="6" [items]="thumbnails$ | async" formControlName="coverImg">
         </app-image-list-select>
       </div>
       <div matDialogActions>
-        <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">保存</button>
-        <button matDialogClose mat-raised-button type="button">关闭</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">{{'save' | translate}}</button>
+        <button matDialogClose mat-raised-button type="button">{{'close' | translate}}</button>
       </div>
     </form>
   `,
@@ -38,6 +39,7 @@ export class NewProjectComponent implements OnInit {
   thumbnails$: Observable<string[]>;
 
   constructor(private fb: FormBuilder,
+              public translate: TranslateService,
               @Inject(MAT_DIALOG_DATA) private data: any,
               private dialogRef: MatDialogRef<NewProjectComponent>) {
     this.thumbnails$ = this.data.thumbnails;
@@ -50,14 +52,14 @@ export class NewProjectComponent implements OnInit {
         desc: [this.data.project.desc, Validators.maxLength(40)],
         coverImg: [this.data.project.coverImg, Validators.required]
       });
-      this.dialogTitle = '修改项目：';
+      this.dialogTitle = this.translate.instant('project.edit');
     } else {
       this.form = this.fb.group({
         name: ['', Validators.compose([Validators.required, Validators.maxLength(20)])],
         desc: ['', Validators.maxLength(40)],
         coverImg: [this.data.img, Validators.required]
       });
-      this.dialogTitle = '创建项目：';
+      this.dialogTitle = this.translate.instant('project.create');
     }
 
   }
