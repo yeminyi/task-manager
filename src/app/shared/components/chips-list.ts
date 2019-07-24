@@ -5,7 +5,7 @@ import {Observable} from 'rxjs';
 import {UserService} from '../../services';
 import {User} from '../../domain';
 import { startWith, debounceTime, distinctUntilChanged, filter, switchMap } from 'rxjs/operators';
-
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-chips-list',
   template: `
@@ -13,7 +13,8 @@ import { startWith, debounceTime, distinctUntilChanged, filter, switchMap } from
       <span>{{ label }}</span>
       <mat-chip-list>
         <mat-chip color="primary" selected="true" *ngFor="let member of items">
-          {{ member.name }} <span (click)="removeMember(member)" class="remove-tag">x</span>
+          {{ member.name }}
+          <mat-icon matChipRemove (click)="removeMember(member)">cancel</mat-icon>
         </mat-chip>
       </mat-chip-list>
       <mat-form-field *ngIf="displayInput" class="full-width">
@@ -52,13 +53,17 @@ export class ChipsListComponent implements ControlValueAccessor, OnInit {
   // 'you are using blablabla that you're trying to access does not exist in the class declaration.'
   @ViewChild('autoMember') autoMember: MatAutocomplete;
   @Input() multiple = true;
-  @Input() label = '添加/修改成员';
-  @Input() placeholderText = '请输入成员 email';
+  @Input() label = this.translate.instant('task.chipslabel');
+  @Input() placeholderText =this.translate.instant('task.followerschips');
   items: User[];
   chips: FormGroup;
   memberResults$: Observable<User[]>;
 
-  constructor(private fb: FormBuilder, private service: UserService) {
+  constructor(
+    private fb: FormBuilder,
+    private service: UserService,
+    private translate:TranslateService
+    ) {
     this.items = [];
   }
 
@@ -103,10 +108,8 @@ export class ChipsListComponent implements ControlValueAccessor, OnInit {
       },
     };
   }
-
-  // 这里没有使用，用于注册 touched 状态
+  // not use for registerOnTouched
   public registerOnTouched() { }
-
   removeMember(member: User) {
     const ids = this.items.map(u => u.id);
     const i = ids.indexOf(member.id);

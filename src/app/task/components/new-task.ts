@@ -40,7 +40,7 @@ import { TranslateService } from '@ngx-translate/core';
         </mat-form-field>
         <mat-datepicker touchUi="true" #reminderPicker></mat-datepicker>
         <div class="full-width">
-          <app-chips-list [label]="labelOwnerTitle" formControlName="followers"></app-chips-list>
+          <app-chips-list [label]="labelFollowersTitle" formControlName="followers"></app-chips-list>
         </div>
         <mat-form-field class="full-width">
           <textarea matInput placeholder="{{'task.remark' | translate}}" formControlName="remark"></textarea>

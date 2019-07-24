@@ -29,6 +29,8 @@
       "task.urgent": "Urgent",
       "task.owner": "Change owner",
       "task.followers": "Change followers",
+      "task.followerschips": "Please input the team member's email",
+      "task.chipslabel": "Add/Edit the team member",
       "project.invite":"Invite member",
       "project.edit": "Edit the project",
       "project.create": "Create a project",
