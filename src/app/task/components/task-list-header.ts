@@ -10,7 +10,7 @@ import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@
       <div class="fill" fxFlex>
         <button mat-button (click)="addNewTask($event)">
           <mat-icon>add_circle_outline</mat-icon>
-          <span>新任务</span>
+          <span>{{'task.new' | translate}}</span>
         </button>
       </div>
       <div>
@@ -22,17 +22,17 @@ import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@
     <mat-menu #menu="matMenu">
       <button mat-menu-item (click)="onChangeListName($event)">
         <mat-icon>mode_edit</mat-icon>
-        <span> 修改列表名称 </span>
+        <span> {{'task.editlist' | translate}} </span>
       </button>
       <mat-divider></mat-divider>
       <button mat-menu-item (click)="onMoveAllTasks($event)">
         <mat-icon svgIcon="move" class="material-icon">content_copy</mat-icon>
-        <span> 移动本列表所有任务 </span>
+        <span> {{'task.moveall' | translate}}  </span>
       </button>
       <mat-divider></mat-divider>
       <button mat-menu-item (click)="onDeleteList($event)">
         <mat-icon>delete_forever</mat-icon>
-        <span> 删除列表 </span>
+        <span> {{'task.deletelist' | translate}}  </span>
       </button>
     </mat-menu>
   `,

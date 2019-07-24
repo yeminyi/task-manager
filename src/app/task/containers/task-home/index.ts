@@ -15,7 +15,7 @@ import * as fromRoot from '../../../reducers';
 import * as listActions from '../../../actions/task-list.action';
 import * as taskActions from '../../../actions/task.action';
 import * as TaskHistoryActions from '../../../actions/task-history.action';
-
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-task-home',
   templateUrl: './task-home.component.html',
@@ -30,6 +30,7 @@ export class TaskHomeComponent {
   private projectId$: Observable<string>;
   constructor(private route: ActivatedRoute,
     private dialog: MatDialog,
+    private translate:TranslateService,
     private store$: Store<fromRoot.State>) {
     this.projectId$ = this.route.paramMap.pipe(map(p => <string>p.get('id')));
     this.lists$ = this.store$.pipe(select(fromRoot.getTaskByFilter));
@@ -78,9 +79,9 @@ export class TaskHomeComponent {
 
   handleDelList(list: TaskList) {
     const confirm = {
-      title: '删除项目：',
-      content: '确认要删除该任务列表？',
-      confirmAction: '确认删除'
+      title: this.translate.instant('task.deletelist')+':'+list.name ,
+      content:this.translate.instant('task.deletelist.confirm'),
+      confirmAction: this.translate.instant('project.del.confirm')
     };
     const dialogRef = this.dialog.open(ConfirmDialogComponent, { data: { dialog: confirm } });
 
