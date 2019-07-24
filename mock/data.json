@@ -469,6 +469,34 @@
       },
       "date": "2019-07-23T09:33:16.932Z",
       "id": "VbCyqNs"
+    },
+    {
+      "taskId": "9",
+      "operator": {
+        "id": "37489e0c-df34-c261-71c4-ce75357e3035",
+        "email": "amy@126.com",
+        "name": "Amy",
+        "avatar": "avatars:svg-1"
+      },
+      "operation": {
+        "type": "completeTask"
+      },
+      "date": "2019-07-24T06:55:12.135Z",
+      "id": "hRI9smQ"
+    },
+    {
+      "taskId": "9",
+      "operator": {
+        "id": "37489e0c-df34-c261-71c4-ce75357e3035",
+        "email": "amy@126.com",
+        "name": "Amy",
+        "avatar": "avatars:svg-1"
+      },
+      "operation": {
+        "type": "recreateTask"
+      },
+      "date": "2019-07-24T06:55:13.732Z",
+      "id": "nTn6QiU"
     }
   ],
   "quotes": [

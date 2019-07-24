@@ -11,7 +11,7 @@ import { getTaskHistoryVMs } from '../../utils/history.util';
 import * as fromRoot from '../../reducers';
 import * as TaskHistoryActions from '../../actions/task-history.action';
 import * as TaskActions from '../../actions/task.action';
-
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-new-task',
   template: `
@@ -19,7 +19,7 @@ import * as TaskActions from '../../actions/task.action';
       <h2 matDialogTitle>{{ dialogTitle }}</h2>
       <div matDialogContent>
         <mat-form-field class="full-width">
-          <input matInput type="text" placeholder="任务内容" formControlName="desc">
+          <input matInput type="text" placeholder="{{'task.taskname' | translate}}" formControlName="desc">
         </mat-form-field>
         <mat-radio-group class="full-width" formControlName="priority">
           <mat-radio-button *ngFor="let priorityItem of priorities" [value]="priorityItem.value">
@@ -27,23 +27,23 @@ import * as TaskActions from '../../actions/task.action';
           </mat-radio-button>
         </mat-radio-group>
         <div class="full-width">
-          <app-chips-list [label]="'更改执行者'" [multiple]="false" formControlName="owner"></app-chips-list>
+          <app-chips-list [label]="labelOwnerTitle" [multiple]="false" formControlName="owner"></app-chips-list>
         </div>
         <mat-form-field class="full-width">
-          <input matInput [matDatepicker]="dueDatePicker" placeholder="选择截止日期" formControlName="dueDate">
+          <input matInput [matDatepicker]="dueDatePicker" placeholder="{{'task.duedate' | translate}}" formControlName="dueDate">
           <mat-datepicker-toggle matSuffix [for]="dueDatePicker"></mat-datepicker-toggle>
         </mat-form-field>
         <mat-datepicker touchUi="true" #dueDatePicker></mat-datepicker>
         <mat-form-field class="full-width">
-          <input matInput [matDatepicker]="reminderPicker" placeholder="选择提醒日期" formControlName="reminder">
+          <input matInput [matDatepicker]="reminderPicker" placeholder="{{'task.reminderdate' | translate}}" formControlName="reminder">
           <mat-datepicker-toggle matSuffix [for]="reminderPicker"></mat-datepicker-toggle>
         </mat-form-field>
         <mat-datepicker touchUi="true" #reminderPicker></mat-datepicker>
         <div class="full-width">
-          <app-chips-list [label]="'更改参与者'" formControlName="followers"></app-chips-list>
+          <app-chips-list [label]="labelOwnerTitle" formControlName="followers"></app-chips-list>
         </div>
         <mat-form-field class="full-width">
-          <textarea matInput placeholder="备注" formControlName="remark"></textarea>
+          <textarea matInput placeholder="{{'task.remark' | translate}}" formControlName="remark"></textarea>
         </mat-form-field>
         <mat-list dense>
         <app-task-history-item
@@ -55,20 +55,20 @@ import * as TaskActions from '../../actions/task.action';
       <div matDialogActions class="full-width">
         <div fxLayout="row" *ngIf="notConfirm else confirm">
           <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">
-            保存
+          {{'save' | translate}}
           </button>
-          <button matDialogClose mat-raised-button type="button">关闭</button>
+          <button matDialogClose mat-raised-button type="button">{{'close' | translate}}</button>
           <span fxFlex>
           </span>
-          <button mat-button color="warn" type="button" [disabled]="delInvisible" (click)="onDelClick(false)">删除</button>
+          <button mat-button color="warn" type="button" [disabled]="delInvisible" (click)="onDelClick(false)">{{'delete' | translate}}</button>
         </div>
       </div>
     </form>
     <ng-template #confirm>
       <div fxLayout="row">
-        <span class="fill-remaining-space mat-body-2">是否确定删除？</span>
-        <button mat-button color="warn" type="button" (click)="reallyDel()">确定</button>
-        <button mat-raised-button color="primary" type="button" (click)="onDelClick(true)">取消</button>
+        <span class="fill-remaining-space mat-body-2">{{'task.del.content' | translate}}</span>
+        <button mat-button color="warn" type="button" (click)="reallyDel()"> {{'confirm' | translate}}</button>
+        <button mat-raised-button color="primary" type="button" (click)="onDelClick(true)"> {{'cancel' | translate}}</button>
       </div>
     </ng-template>
   `,
@@ -83,19 +83,22 @@ export class NewTaskComponent implements OnInit, OnDestroy {
 
   form: FormGroup;
   dialogTitle: string;
+  labelOwnerTitle: string;
+  labelFollowersTitle: string;
   notConfirm = true;
   delInvisible = true;
+
   priorities: { label: string; value: number }[] = [
     {
-      label: '普通',
+      label:  this.translate.instant('task.normal'),
       value: 3
     },
     {
-      label: '重要',
+      label:  this.translate.instant('task.important'),
       value: 2
     },
     {
-      label: '紧急',
+      label:  this.translate.instant('task.urgent'),
       value: 1
     },
   ];
@@ -103,11 +106,14 @@ export class NewTaskComponent implements OnInit, OnDestroy {
   constructor(private fb: FormBuilder,
     @Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<NewTaskComponent>,
+    private translate:TranslateService,
     private store$: Store<fromRoot.State>) {
     this.taskHistories$ = this.store$.select(fromRoot.getTaskHistories);
   }
 
   ngOnInit() {
+    this.labelOwnerTitle = this.translate.instant('task.owner');
+    this.labelFollowersTitle = this.translate.instant('task.followers');
     if (!this.data.task) {
       this.form = this.fb.group({
         desc: ['', Validators.compose([Validators.required, Validators.maxLength(30)])],
@@ -118,7 +124,7 @@ export class NewTaskComponent implements OnInit, OnDestroy {
         followers: [[]],
         remark: ['', Validators.maxLength(40)]
       });
-      this.dialogTitle = '创建任务：';
+      this.dialogTitle = this.translate.instant('task.create');
       this.delInvisible = true;
     } else {
       this.form = this.fb.group({
@@ -130,7 +136,7 @@ export class NewTaskComponent implements OnInit, OnDestroy {
         followers: [this.data.task.participants ? [...this.data.task.participants] : []],
         remark: [this.data.task.remark, Validators.maxLength(40)]
       });
-      this.dialogTitle = '修改任务：';
+      this.dialogTitle =  this.translate.instant('task.edit');
       this.delInvisible = false;
 
       this.loadTaskHistories();
