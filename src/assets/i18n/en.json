@@ -31,6 +31,8 @@
       "task.followers": "Change followers",
       "task.followerschips": "Please input the team member's email",
       "task.chipslabel": "Add/Edit the team member",
+      "task.quicktooltip":"Enter to confirm",
+      "task.quicktask":"Quick way to create a task here",
       "project.invite":"Invite member",
       "project.edit": "Edit the project",
       "project.create": "Create a project",
