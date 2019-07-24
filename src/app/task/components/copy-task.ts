@@ -3,7 +3,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {Observable} from 'rxjs';
 import {TaskList} from '../../domain';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-copy-task',
   template: `
@@ -11,15 +11,15 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
       <span matDialogTitle>{{ dialogTitle }}</span>
       <div matDialogContent>
         <mat-form-field>
-          <mat-select placeholder="选择目标列表" formControlName="targetList" class="full-width">
+          <mat-select placeholder="{{'task.copy_target' | translate}}" formControlName="targetList" class="full-width">
             <mat-option *ngFor="let list of lists$ | async" [value]="list.id">
               {{ list.name }}
             </mat-option>
           </mat-select>
         </mat-form-field>
         <div matDialogActions>
-          <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">确定</button>
-          <button matDialogClose mat-raised-button type="button">关闭</button>
+          <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">{{'confirm' | translate}}</button>
+          <button matDialogClose mat-raised-button type="button">{{'close' | translate}}</button>
         </div>
       </div>
     </form>
@@ -32,13 +32,14 @@ export class CopyTaskComponent implements OnInit {
   lists$: Observable<TaskList>;
 
   constructor(private fb: FormBuilder,
+              public translate:TranslateService,
               @Inject(MAT_DIALOG_DATA) private data: any,
               private dialogRef: MatDialogRef<CopyTaskComponent>) {
   }
 
   ngOnInit() {
     this.lists$ = this.data.lists;
-    this.dialogTitle = '移动所有任务';
+    this.dialogTitle = this.translate.instant('task.moveall');
     this.form = this.fb.group({
       targetList: ['', Validators.required]
     });
