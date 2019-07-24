@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, Inject, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-new-task-list',
   template: `
@@ -9,12 +9,12 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
       <h3 matDialogTitle>{{ dialogTitle }}</h3>
       <div matDialogContent>
         <mat-form-field class="full-width">
-          <input matInput placeholder="列表名称" formControlName="name">
+          <input matInput placeholder="{{'task.listname' | translate}}" formControlName="name">
         </mat-form-field>
       </div>
       <div matDialogActions>
-        <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">保存</button>
-        <button matDialogClose mat-raised-button type="button">关闭</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">{{'save' | translate}}</button>
+        <button matDialogClose mat-raised-button type="button">{{'close' | translate}}</button>
       </div>
     </form>
   `,
@@ -34,6 +34,7 @@ export class NewTaskListComponent implements OnInit {
   dialogTitle: string;
 
   constructor(private fb: FormBuilder,
+              private translate:TranslateService,
               @Inject(MAT_DIALOG_DATA) private data: any,
               private dialogRef: MatDialogRef<NewTaskListComponent>) {
   }
@@ -43,12 +44,12 @@ export class NewTaskListComponent implements OnInit {
       this.form = this.fb.group({
         name: ['', Validators.compose([Validators.required, Validators.maxLength(10)])]
       });
-      this.dialogTitle = '创建列表：';
+      this.dialogTitle =this.translate.instant('task.createlist');
     } else {
       this.form = this.fb.group({
         name: [this.data.name, Validators.compose([Validators.required, Validators.maxLength(10)])],
       });
-      this.dialogTitle = '修改列表：';
+      this.dialogTitle =this.translate.instant('task.editlist');
     }
   }
 
