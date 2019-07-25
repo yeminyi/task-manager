@@ -3,14 +3,14 @@
     <div class="task-filter-nav-title"> {{'task.filter' | translate}}</div>
     <mat-icon class="task-filter-nav-close" (click)="onCloseClicked($event)">clear</mat-icon>
   </div>
-  <div class="task-filter-nav-body">
+  <!-- <div class="task-filter-nav-body">
     <div class="task-filter-nav-category-container">
       <div class="task-filter-nav-category-header task-filter-nav-category-header-highlight" [matMenuTriggerFor]="sortMenu">
         <mat-icon class="task-filter-nav-category-header-icon">sort</mat-icon>
         <span class="task-filter-nav-category-header-title">{{ getSortLabel() }}</span>
         <mat-icon class="task-filter-nav-category-header-end-icon">keyboard_arrow_down</mat-icon>
       </div>
-    </div>
+    </div> -->
     <div class="task-filter-nav-category-container">
       <div class="task-filter-nav-category-header">
         <mat-icon class="task-filter-nav-category-header-icon">input</mat-icon>
@@ -23,7 +23,7 @@
         </mat-form-field>
       </div>
     </div>
-    <div *ngIf="taskFilterVM.hasOwner" class="task-filter-nav-category-container">
+    <!-- <div *ngIf="taskFilterVM.hasOwner" class="task-filter-nav-category-container">
       <div class="task-filter-nav-category-header"> {{'task.filter.owner' | translate}}</div>
       <div class="task-filter-nav-category-item" *ngFor="let ownerVM of taskFilterVM.ownerVMs" (click)="onOwnerItemClicked($event, ownerVM)">
         <mat-icon class="task-filter-nav-category-item-avatar" [svgIcon]="getOwnerAvatar(ownerVM)"></mat-icon>
@@ -103,4 +103,4 @@
   <div class="task-filter-nav-menu-item task-filter-nav-sort-menu-width" (click)="onSaveSortItemClicked($event)">
     <span class="task-filter-nav-menu-item-colored-desc">{{'task.filter.add' | translate}}</span>
   </div>
-</mat-menu>
+</mat-menu> -->
