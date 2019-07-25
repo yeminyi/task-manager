@@ -17,6 +17,7 @@ import { Store, select } from '@ngrx/store';
 import { MyCalService } from '../../services';
 import { defaultRouteAnim } from '../../anim';
 import * as fromRoot from '../../reducers';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-cal-home',
@@ -48,7 +49,7 @@ import * as fromRoot from '../../reducers';
           <mwl-calendar-month-view
             *ngSwitchCase="'month'"
             [viewDate]="viewDate"
-            [locale]="'zh-Hans'"
+            [locale]="language"
             [events]="calEvents"
             [activeDayIsOpen]="activeDayIsOpen"
             (dayClicked)="dayClicked($event.day)"
@@ -58,7 +59,7 @@ import * as fromRoot from '../../reducers';
           <mwl-calendar-week-view
             *ngSwitchCase="'week'"
             [viewDate]="viewDate"
-            [locale]="'zh-Hans'"
+            [locale]="language"
             [events]="calEvents"
             (eventClicked)="handleEvent('Clicked', $event.event)"
           >
@@ -66,7 +67,7 @@ import * as fromRoot from '../../reducers';
           <mwl-calendar-day-view
             *ngSwitchCase="'day'"
             [viewDate]="viewDate"
-            [locale]="'zh-Hans'"
+            [locale]="language"
             [events]="calEvents"
             (eventClicked)="handleEvent('Clicked', $event.event)"
           >
@@ -90,11 +91,12 @@ export class CalendarHomeComponent {
   view$: Observable<string>;
   activeDayIsOpen = true;
   events$: Observable<CalendarEvent[]>;
-
+  language: string;
   constructor(
     private route: ActivatedRoute,
     private service$: MyCalService,
-    private store$: Store<fromRoot.State>
+    private store$: Store<fromRoot.State>,
+    private translate: TranslateService
   ) {
     this.viewDate = new Date();
     this.view$ = this.route.paramMap.pipe(map(p => <string>p.get('view')));
@@ -105,7 +107,20 @@ export class CalendarHomeComponent {
       switchMap(user => this.service$.getUserTasks(<string>user.id))
     );
   }
+  ngDoCheck(){
+    switch (this.translate.currentLang) {
+      case 'cn':
+        this.language='zh-Hans';
+        break;
+      case 'en':
+          this.language='en';
+          break;
+      default:
+        this.language='en';
+        break;
+    }
 
+  }
   handleEvent(action: string, event: CalendarEvent): void {
     console.log('events handled');
   }
