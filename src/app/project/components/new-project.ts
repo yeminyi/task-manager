@@ -39,7 +39,7 @@ export class NewProjectComponent implements OnInit {
   thumbnails$: Observable<string[]>;
 
   constructor(private fb: FormBuilder,
-              public translate: TranslateService,
+              private translate: TranslateService,
               @Inject(MAT_DIALOG_DATA) private data: any,
               private dialogRef: MatDialogRef<NewProjectComponent>) {
     this.thumbnails$ = this.data.thumbnails;

@@ -1,6 +1,6 @@
 <form class="task-filter-nav-container" [formGroup]="form">
   <div class="task-filter-nav-header">
-    <div class="task-filter-nav-title">视图</div>
+    <div class="task-filter-nav-title"> {{'task.filter' | translate}}</div>
     <mat-icon class="task-filter-nav-close" (click)="onCloseClicked($event)">clear</mat-icon>
   </div>
   <div class="task-filter-nav-body">
@@ -14,17 +14,17 @@
     <div class="task-filter-nav-category-container">
       <div class="task-filter-nav-category-header">
         <mat-icon class="task-filter-nav-category-header-icon">input</mat-icon>
-        <span class="task-filter-nav-category-header-title">任务筛选</span>
-        <span *ngIf="taskDesc" class="task-filter-nav-category-header-clear" (click)="onClearDesc($event)">清除筛选</span>
+        <span class="task-filter-nav-category-header-title"> {{'task.filtertask' | translate}}</span>
+        <span *ngIf="taskDesc" class="task-filter-nav-category-header-clear" (click)="onClearDesc($event)"> {{'task.filter.clear' | translate}}"</span>
       </div>
       <div class="task-filter-nav-category-input-container">
         <mat-form-field class="full-width">
-          <input matInput placeholder="查找相关任务" formControlName="descFilter" autocomplete="off" />
+          <input matInput placeholder=" {{'task.filter.search' | translate}}" formControlName="descFilter" autocomplete="off" />
         </mat-form-field>
       </div>
     </div>
     <div *ngIf="taskFilterVM.hasOwner" class="task-filter-nav-category-container">
-      <div class="task-filter-nav-category-header">执行者</div>
+      <div class="task-filter-nav-category-header"> {{'task.filter.owner' | translate}}</div>
       <div class="task-filter-nav-category-item" *ngFor="let ownerVM of taskFilterVM.ownerVMs" (click)="onOwnerItemClicked($event, ownerVM)">
         <mat-icon class="task-filter-nav-category-item-avatar" [svgIcon]="getOwnerAvatar(ownerVM)"></mat-icon>
         <span>{{ getOwnerName(ownerVM) }}</span>
@@ -33,7 +33,7 @@
       <div class="task-filter-nav-category-divider"></div>
     </div>
     <div *ngIf="taskFilterVM.hasDueDate" class="task-filter-nav-category-container">
-      <div class="task-filter-nav-category-header">截止时间</div>
+      <div class="task-filter-nav-category-header">{{'task.filter.duedate' | translate}}</div>
       <div class="task-filter-nav-category-item" *ngFor="let dueDateVM of taskFilterVM.dueDateVMs" (click)="onDueDateItemClicked($event, dueDateVM)">
         <span>{{ dueDateVM.label }}</span>
         <mat-icon *ngIf="dueDateVM.checked" class="task-filter-nav-category-item-selected">check</mat-icon>
@@ -41,7 +41,7 @@
       <div class="task-filter-nav-category-divider"></div>
     </div>
     <div *ngIf="taskFilterVM.hasCreateDate" class="task-filter-nav-category-container">
-      <div class="task-filter-nav-category-header">创建时间</div>
+      <div class="task-filter-nav-category-header">{{'task.filter.createdate' | translate}}</div>
       <div class="task-filter-nav-category-item-container" *ngFor="let createDateVM of taskFilterVM.createDateVMs" (click)="onCreateDateItemClicked($event, createDateVM)">
         <div class="task-filter-nav-category-item">
           <span>{{ createDateVM.label }}</span>
@@ -65,7 +65,7 @@
       <div class="task-filter-nav-category-divider"></div>
     </div>
     <div *ngIf="taskFilterVM.hasPriority" class="task-filter-nav-category-container">
-      <div class="task-filter-nav-category-header">优先级</div>
+      <div class="task-filter-nav-category-header">{{'task.filter.priority' | translate}}</div>
       <div class="task-filter-nav-category-item" *ngFor="let priorityVM of taskFilterVM.priorityVMs" (click)="onPriorityItemClicked($event, priorityVM)">
         <span>{{ priorityVM.label }}</span>
         <mat-icon *ngIf="priorityVM.checked" class="task-filter-nav-category-item-selected">check</mat-icon>
@@ -75,7 +75,7 @@
     <div class="task-filter-nav-category-container">
       <div class="task-filter-nav-category-header task-filter-nav-category-header-colored-highlight" [matMenuTriggerFor]="menu">
         <mat-icon class="task-filter-nav-category-header-icon">add_circle</mat-icon>
-        <span class="task-filter-nav-category-header-title">添加筛选</span>
+        <span class="task-filter-nav-category-header-title">{{'task.filter.add' | translate}}</span>
       </div>
     </div>
   </div>
@@ -83,7 +83,7 @@
 
 <mat-menu #menu="matMenu" xPosition="after" yPosition="above" [overlapTrigger]="false">
   <div class="task-filter-nav-menu-header">
-    <span class="task-filter-nav-menu-header-title" (click)="onEditFilterHeaderClicked($event)">添加筛选</span>
+    <span class="task-filter-nav-menu-header-title" (click)="onEditFilterHeaderClicked($event)">{{'task.filter.add' | translate}}</span>
     <mat-icon class="task-filter-nav-menu-close" (click)="onEditFilterCloseClicked($event)">clear</mat-icon>
   </div>
   <div class="task-filter-nav-category-divider"></div>
@@ -101,6 +101,6 @@
   </div>
   <div class="task-filter-nav-category-divider"></div>
   <div class="task-filter-nav-menu-item task-filter-nav-sort-menu-width" (click)="onSaveSortItemClicked($event)">
-    <span class="task-filter-nav-menu-item-colored-desc">保存为项目默认排序</span>
+    <span class="task-filter-nav-menu-item-colored-desc">{{'task.filter.add' | translate}}</span>
   </div>
 </mat-menu>

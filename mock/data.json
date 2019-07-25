@@ -369,11 +369,11 @@
     {
       "id": "rkxe1-9KpW",
       "projectId": "Hya1moGb-",
-      "sort": "default",
+      "sort": "createDateAsc",
       "hasOwner": false,
-      "hasDueDate": false,
+      "hasDueDate": true,
       "hasCreateDate": false,
-      "hasPriority": false
+      "hasPriority": true
     },
     {
       "id": "Bkm8XZcta-",
