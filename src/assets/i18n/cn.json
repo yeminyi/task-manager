@@ -36,6 +36,7 @@
     "task.quicktooltip":"回车或者点击右侧图标确认",
     "task.quicktask":"在这里快速建立一个任务",
     "task.new":"新任务",
+    "task.filter":"视图",
     "project.edit": "修改项目",
     "project.create": "创建项目",
     "project.invite":"邀请成员",
@@ -63,6 +64,7 @@
     "login.yourpsw": "您的password",
     "login.user_erro": "用户名是必填项哦",
     "login.password_erro": "密码不正确哦",
-    "forgot.youremail": "注册时使用的电子邮箱"
+    "forgot.youremail": "注册时使用的电子邮箱",
+    "share.cover":"请选择封面:"
 
 }

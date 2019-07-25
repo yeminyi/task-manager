@@ -2,13 +2,13 @@ import {Component, OnInit, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {NgForm} from '@angular/forms';
 import {User} from '../../domain';
-
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-invite',
   template: `
     <h2 matDialogTitle>{{ dialogTitle }}</h2>
     <form class="full-width" #f="ngForm" (ngSubmit)="onSubmit($event, f)">
-      <app-chips-list [label]="'邀请成员'" name="members" [(ngModel)]="members">
+      <app-chips-list [label]="dialogTitle" name="members" [(ngModel)]="members">
       </app-chips-list>
       <div mat-dialog-actions>
         <button mat-raised-button color="primary" type="submit" [disabled]="!f.valid">
@@ -26,12 +26,13 @@ export class InviteComponent implements OnInit {
   dialogTitle: string;
 
   constructor(
+    private translate:TranslateService,
     @Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<InviteComponent>) { }
 
   ngOnInit() {
     this.members = [...this.data.members];
-    this.dialogTitle = this.data.dialogTitle ? this.data.dialogTitle : '邀请成员';
+    this.dialogTitle = this.data.dialogTitle ? this.data.dialogTitle : this.translate.instant('project.invite');
   }
 
   onSubmit(ev: Event, {value, valid}: NgForm) {

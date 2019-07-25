@@ -12,7 +12,7 @@ import {
   NG_VALIDATORS,
   NG_VALUE_ACCESSOR
 } from '@angular/forms';
-
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-image-list-select',
   templateUrl: './image-list-select.component.html',
@@ -33,13 +33,16 @@ import {
 })
 export class ImageListSelectComponent implements ControlValueAccessor {
   selected: string;
-  @Input() title = '选择封面：';
+  @Input() title = this.translate.instant('share.cover');
   @Input() items: string[] = [];
   @Input() cols = 8;
   @Input() rowHeight = '64px';
   @Input() itemWidth = '80px';
   @Input() useSvgIcon = false;
   @Output() itemChange = new EventEmitter<string>();
+
+  constructor(
+    private translate:TranslateService) { }
 
   // 这里是做一个空函数体，真正使用的方法在 registerOnChange 中
   // 由框架注册，然后我们使用它把变化发回表单

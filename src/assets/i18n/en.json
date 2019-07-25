@@ -36,6 +36,7 @@
       "task.quicktooltip":"Enter to confirm",
       "task.quicktask":"Quick way to create a task here",
       "task.new":"New task",
+      "task.filter":"Filter",
       "project.invite":"Invite member",
       "project.edit": "Edit the project",
       "project.create": "Create a project",
@@ -63,6 +64,7 @@
       "login.yourpsw": "Your password",
       "login.user_erro": "Please input your email",
       "login.password_erro": "Please check your password,it is not right",
-      "forgot.youremail": "Your email which is used for registration"
+      "forgot.youremail": "Your email which is used for registration",
+      "share.cover":"Please chose the cover:"
 
 }
