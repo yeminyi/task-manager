@@ -2,15 +2,10 @@
 
 # compiled output
 /dist
-<<<<<<< HEAD
 /dist-server
 /tmp
 /out-tsc
 /out
-=======
-/tmp
-/out-tsc
->>>>>>> master
 
 # dependencies
 /node_modules
@@ -36,7 +31,6 @@
 /connect.lock
 /coverage
 /libpeerconnection.log
-<<<<<<< HEAD
 *.log
 *.log*
 /typings
@@ -45,19 +39,10 @@
 # e2e
 /e2e/*.js
 /e2e/*.map
-=======
-npm-debug.log
-yarn-error.log
-testem.log
-/typings
->>>>>>> master
 
 # System Files
 .DS_Store
 Thumbs.db
-<<<<<<< HEAD
 
 # generated docs
 /doc
-=======
->>>>>>> master
