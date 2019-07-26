@@ -3,6 +3,7 @@
   "compilerOptions": {
     "outDir": "../out-tsc/app",
     "module": "es2015",
+<<<<<<< HEAD
     "strict": false,
     "strictNullChecks": true,
     "skipLibCheck": true,
@@ -11,6 +12,12 @@
   },
   "exclude": [
     "test.ts",
+=======
+    "types": []
+  },
+  "exclude": [
+    "src/test.ts",
+>>>>>>> master
     "**/*.spec.ts"
   ]
 }

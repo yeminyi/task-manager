@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+<<<<<<< HEAD
 import {AuthGuardService} from '../services';
 import {PageNotFoundComponent} from './containers/page-not-found';
 
@@ -36,3 +37,33 @@ const routes: Routes = [
 })
 export class AppRoutingModule {
 }
+=======
+
+
+const routes: Routes = [
+    { 
+        path: '',
+        redirectTo:'/login',
+        pathMatch:'full' ,
+        
+    },
+    { 
+        path: 'project',
+        redirectTo:'/project',
+        pathMatch:'full' ,
+        data: {animation: 'project'} 
+    },
+    { 
+        path: 'tasklist',
+        redirectTo:'/tasklists',
+        pathMatch:'full' ,
+        data: {animation: 'tasklists'} 
+    }
+];
+
+@NgModule({
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
+})
+export class AppRoutingModule {}
+>>>>>>> master

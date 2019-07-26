@@ -7,10 +7,20 @@
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
+<<<<<<< HEAD
+=======
+      "prefix": "app",
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleExt": "scss"
+        }
+      },
+>>>>>>> master
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+<<<<<<< HEAD
             "outputPath": "dist/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -20,10 +30,24 @@
             "styles": [
               "src/styles.scss",
               "node_modules/angular-calendar/scss/angular-calendar.scss"
+=======
+            "outputPath": "dist/taskmgr",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.app.json",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+>>>>>>> master
             ],
             "scripts": []
           },
           "configurations": {
+<<<<<<< HEAD
             "hmr": {
               "fileReplacements": [
                 {
@@ -33,6 +57,15 @@
               ]
             },
             "production": {
+=======
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+>>>>>>> master
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -41,6 +74,7 @@
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
+<<<<<<< HEAD
               "buildOptimizer": true,
               "fileReplacements": [
                 {
@@ -48,6 +82,9 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ]
+=======
+              "buildOptimizer": true
+>>>>>>> master
             }
           }
         },
@@ -57,9 +94,12 @@
             "browserTarget": "taskmgr:build"
           },
           "configurations": {
+<<<<<<< HEAD
             "hmr": {
               "browserTarget": "taskmgr:build:hmr"
             },
+=======
+>>>>>>> master
             "production": {
               "browserTarget": "taskmgr:build:production"
             }
@@ -75,6 +115,7 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "src/test.ts",
+<<<<<<< HEAD
             "karmaConfig": "./karma.conf.js",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
@@ -84,11 +125,25 @@
               "node_modules/angular-calendar/scss/angular-calendar.scss"
             ],
             "assets": ["src/assets", "src/favicon.ico"]
+=======
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.spec.json",
+            "karmaConfig": "src/karma.conf.js",
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": [],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ]
+>>>>>>> master
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
+<<<<<<< HEAD
             "tsConfig": ["src/tsconfig.app.json", "src/tsconfig.spec.json"],
             "exclude": []
           }
@@ -123,32 +178,63 @@
               "serverTarget": "ng-universal:server:production",
               "verbose": true
             }
+=======
+            "tsConfig": [
+              "src/tsconfig.app.json",
+              "src/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+>>>>>>> master
           }
         }
       }
     },
     "taskmgr-e2e": {
+<<<<<<< HEAD
       "root": "e2e",
       "sourceRoot": "e2e",
+=======
+      "root": "e2e/",
+>>>>>>> master
       "projectType": "application",
       "architect": {
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
+<<<<<<< HEAD
             "protractorConfig": "./protractor.conf.js",
             "devServerTarget": "taskmgr:serve"
+=======
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "taskmgr:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "taskmgr:serve:production"
+            }
+>>>>>>> master
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
+<<<<<<< HEAD
             "tsConfig": ["e2e/tsconfig.e2e.json"],
             "exclude": []
+=======
+            "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+>>>>>>> master
           }
         }
       }
     }
   },
+<<<<<<< HEAD
   "defaultProject": "taskmgr",
   "schematics": {
     "@schematics/angular:component": {
@@ -160,3 +246,7 @@
     }
   }
 }
+=======
+  "defaultProject": "taskmgr"
+}
+>>>>>>> master

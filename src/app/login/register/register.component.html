@@ -1,0 +1,40 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit(form, $event)">
+  <mat-card class="card">
+    <mat-card-header>
+      <mat-card-title></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-input-container class="full-width">
+            <input matInput placeholder="email" formControlName="email">
+          </mat-input-container>
+          <mat-input-container class="full-width">
+            <input matInput type="text" placeholder="Your Name" formControlName="name">
+          </mat-input-container>
+          <mat-input-container class="full-width">
+            <input matInput type="password" placeholder="Your Password" formControlName="password">
+          </mat-input-container>
+          <mat-input-container class="full-width">
+            <input matInput type="password" placeholder="Please confirm your pasword here" formControlName="repeat">
+          </mat-input-container>
+          <!-- <mat-grid-list cols="6" >
+            <mat-grid-tile *ngFor="let item of items">
+              <mat-icon class="avatar" [svgIcon]="item"></mat-icon>
+            </mat-grid-tile>
+          </mat-grid-list>    -->
+          <app-img-list-select
+          [useSvgIcon]="true"
+          [cols]="6"
+          [title]="'Please select：'"
+          [items]="items"
+          formControlName="avatar">
+        </app-img-list-select>
+    </mat-card-content>
+    <mat-card-actions class="text-right">
+        <p>Create new account <a routerLink="/register">Register</a></p>
+        <p>Forgot password <a href="">Find your password</a></p>
+    </mat-card-actions>
+  
+  </mat-card>
+
+  </form>
+  
