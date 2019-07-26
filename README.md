@@ -4,6 +4,7 @@
 
 - Using `@ngrx/store` for state management and `@ngrx/effects` the RxJS powered side effect model for store.
 - Using `@ngrx/entity` to Reduce boilerplate for creating reducers that manage a collection of models.
+- Using `@ngx-translate/core` for the internationalization
 - Using `rxjs` for reactive programming.
 - Using `json-server` for REST API.
 - Using `@angular/flex-layout` for UI layout.
