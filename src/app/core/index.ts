@@ -42,7 +42,7 @@ import { CustomRouterStateSerializer } from '../utils/router.util';
   ],
   exports: [AppComponent, AppRoutingModule],
   providers: [
-    { provide: 'BASE_CONFIG', useValue: { uri: 'http://localhost:3002' } },
+    { provide: 'BASE_CONFIG', useValue: { uri: 'https://taskmanager2019demo.firebaseapp.com/api' } },
     { provide: LOCALE_ID, useValue: 'zh-Hans' },
     { provide: MAT_DATE_LOCALE, useValue: 'zh-CN' },
     { provide: DateAdapter, useClass: MomentDateAdapter },

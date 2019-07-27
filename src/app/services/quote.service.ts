@@ -5,7 +5,6 @@ import { Quote } from '../domain';
 
 @Injectable()
 export class QuoteService {
-  // private uri: string = 'https://api.hzy.pw/saying/v1/ciba';
   constructor(@Inject('BASE_CONFIG') private config: { uri: string },
     private http: HttpClient) {
   }
