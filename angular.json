@@ -4,7 +4,7 @@
   "newProjectRoot": "projects",
   "projects": {
     "taskmgr": {
-      "root": "",
+      "root": "task-manager",
       "sourceRoot": "src",
       "projectType": "application",
       "architect": {
