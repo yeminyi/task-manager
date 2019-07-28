@@ -1,5 +1,7 @@
 # Multi-User Task Manager System
 
+Demo runs here : [https://yeminyi.github.io/task-manager/](https://yeminyi.github.io/task-manager/)
+
 ## Tech stack
 
 - Using `@ngrx/store` for state management and `@ngrx/effects` the RxJS powered side effect model for store.
@@ -23,5 +25,5 @@
 2. git clone projectn
 3. `cd to the project folder`
 4. `npm install`
-5. `npm start` to start the front-end project and json-server ，then visit `http://localhost:8000`
+5. `npm start` to start the front-end project and json-server ，then visit `http://localhost:8000`(If run at local using json-server,please change the BASE_CONFIG to `http://localhost:3002`)
 6. `npm run start:ssr` start SSR version (Server Side Rendering）
