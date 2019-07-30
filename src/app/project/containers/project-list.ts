@@ -15,7 +15,7 @@ import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-project-list',
   template: `
-    <div fxLayout="row" fxLayoutWrap [@listAnim]="listAnim$ | async">
+    <div fxLayout="row"  fxLayout.xs="column" [@listAnim]="listAnim$ | async">
       <app-project-item
         fxFlex="0 0 360px"
         fxFlex.xs="1 1 auto"
