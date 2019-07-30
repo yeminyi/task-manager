@@ -9,8 +9,8 @@ import { AppComponent } from './core/containers/app';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
-
-
+import {ThemePickerModule} from './shared/components/theme-picker';
+import {ThemeStorage} from './shared/components/theme-picker/theme-storage/theme-storage';
 @NgModule({
   imports: [
     BrowserModule.withServerTransition({ appId: 'taskmgr' }),
@@ -18,6 +18,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
     SharedModule,
     LoginModule,
     CoreModule,
+    ThemePickerModule,
      // ngx-translate and the loader module
      HttpClientModule,
      TranslateModule.forRoot({
@@ -27,6 +28,9 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
              deps: [HttpClient]
          }
      })
+  ],
+  providers: [
+    ThemeStorage
   ],
   bootstrap: [AppComponent]
 })

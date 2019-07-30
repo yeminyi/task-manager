@@ -34,7 +34,7 @@ import {IdentityInputComponent} from './components/identity-input';
 import {AreaListComponent} from './components/area-list';
 import {AgeInputComponent} from './components/age-input';
 import {DirectivesModule} from '../directives';
-
+import {ThemePickerModule} from './components/theme-picker';
 const MATERIAL_MODULES = [
   MatToolbarModule, MatSidenavModule, MatAutocompleteModule, MatButtonModule,
   MatButtonToggleModule, MatCardModule, MatCheckboxModule, MatChipsModule,
@@ -51,7 +51,8 @@ const MODULES = [
   FormsModule,
   FlexLayoutModule,
   DirectivesModule,
-  TranslateModule
+  TranslateModule,
+  ThemePickerModule
 ];
 
 const DECLARATIONS = [
