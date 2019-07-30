@@ -6,7 +6,7 @@ import {Quote} from '../../domain';
 import * as fromRoot from '../../reducers';
 import * as authActions from '../../actions/auth.action';
 import * as actions from '../../actions/quote.action';
-
+import {TranslateService} from '@ngx-translate/core';
 @Component({
   selector: 'app-login',
   template: `
@@ -32,16 +32,17 @@ import * as actions from '../../actions/quote.action';
       </mat-card-actions>
     </mat-card>
     <mat-card fxFlex="0 1 20rem">
-      <mat-card-header>
+      <mat-card-header [ngSwitch]="language">
         <mat-card-title> </mat-card-title>
-        <mat-card-subtitle>
+        <mat-card-subtitle  *ngSwitchCase="'en'">
+          {{ (quote$ | async)?.en }}
+        </mat-card-subtitle>
+        <mat-card-subtitle  *ngSwitchCase="'cn'">
           {{ (quote$ | async)?.cn }}
         </mat-card-subtitle>
       </mat-card-header>
       <img matCardImage [src]="(quote$ | async)?.pic">
-      <mat-card-content>
-        <p> {{ (quote$ | async)?.en }}</p>
-      </mat-card-content>
+
     </mat-card>
   </form>
   `,
@@ -56,8 +57,9 @@ import * as actions from '../../actions/quote.action';
 export class LoginComponent implements OnInit {
   form: FormGroup;
   quote$: Observable<Quote>;
-
+  language: string;
   constructor(private fb: FormBuilder,
+              private translate: TranslateService,
               private store$: Store<fromRoot.State>) {
     this.quote$ = this.store$.pipe(select(fromRoot.getQuoteState));
   }
@@ -69,7 +71,9 @@ export class LoginComponent implements OnInit {
     });
     this.store$.dispatch({type: actions.QUOTE});
   }
-
+ngDoCheck(){
+    this.language=this.translate.currentLang;
+  }
   onSubmit({value, valid}: FormGroup, e: Event) {
     e.preventDefault();
     if (!valid) {
