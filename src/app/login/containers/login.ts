@@ -31,7 +31,7 @@ import {TranslateService} from '@ngx-translate/core';
         <p> <a routerLink="/forgot">{{'login.forgotpsw' | translate}}?</a></p>
       </mat-card-actions>
     </mat-card>
-    <mat-card fxFlex="0 1 20rem">
+    <mat-card fxFlex="0 1 20rem" fxHide="true" fxShow.gt-xs>
       <mat-card-header [ngSwitch]="language">
         <mat-card-title> </mat-card-title>
         <mat-card-subtitle  *ngSwitchCase="'en'">
@@ -42,7 +42,6 @@ import {TranslateService} from '@ngx-translate/core';
         </mat-card-subtitle>
       </mat-card-header>
       <img matCardImage [src]="(quote$ | async)?.pic">
-
     </mat-card>
   </form>
   `,
