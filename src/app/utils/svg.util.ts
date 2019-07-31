@@ -22,6 +22,6 @@ export const loadSvgResources = (ir: MatIconRegistry, ds: DomSanitizer) => {
     .addSvgIcon('week', ds.bypassSecurityTrustResourceUrl(`${sidebarDir}/week.svg`))
     .addSvgIcon('day', ds.bypassSecurityTrustResourceUrl(`${sidebarDir}/day.svg`))
     .addSvgIcon('move', ds.bypassSecurityTrustResourceUrl(`${iconDir}/move.svg`));
-  const days = _.range(1, 31);
+  const days = _.range(1, 32);
   days.forEach(day => ir.addSvgIcon(`day${day}`, ds.bypassSecurityTrustResourceUrl(`${dayDir}/day${day}.svg`)));
 };

@@ -6,7 +6,7 @@ import {
   OnInit,
   OnDestroy,
 } from '@angular/core';
-// import {StyleManager} from '../style-manager/style-manager';
+import {StyleManager} from '../style-manager/style-manager';
 import {ThemeStorage, DocsSiteTheme} from './theme-storage/theme-storage';
 import {MatButtonModule} from '@angular/material/button';
 import {MatGridListModule} from '@angular/material/grid-list';
@@ -48,9 +48,9 @@ export class ThemePicker implements OnInit, OnDestroy {
   ];
 
   constructor(
-    // public styleManager: StyleManager,
+    public styleManager: StyleManager,
     private _themeStorage: ThemeStorage,
-    // private _activatedRoute: ActivatedRoute
+    private _activatedRoute: ActivatedRoute
     ) {
     // this.installTheme(this._themeStorage.getStoredThemeName());
   }
@@ -74,12 +74,16 @@ export class ThemePicker implements OnInit, OnDestroy {
 
     this.currentTheme = theme;
 
-    // if (theme.isDefault) {
-    //   this.styleManager.removeStyle('theme');
+    if (theme.isDefault) {
+      this.styleManager.removeStyle('theme');
+    } else {
+      this.styleManager.setStyle('theme', `assets/${theme.name}.css`);
+    }
+    // if (dark) {
+    //   this.oc.getContainerElement().classList.add('myapp-dark-theme');
     // } else {
-    //   this.styleManager.setStyle('theme', `assets/${theme.name}.css`);
+    //   this.oc.getContainerElement().classList.remove('myapp-dark-theme');
     // }
-
     if (this.currentTheme) {
       this._themeStorage.storeTheme(this.currentTheme);
     }
@@ -98,7 +102,7 @@ export class ThemePicker implements OnInit, OnDestroy {
   exports: [ThemePicker],
   declarations: [ThemePicker],
   providers: [
-    // StyleManager,
+    StyleManager,
     ThemeStorage],
 })
 export class ThemePickerModule { }

@@ -10,6 +10,7 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {ThemePickerModule} from './shared/components/theme-picker';
+import {StyleManager} from './shared/components/style-manager';
 import {ThemeStorage} from './shared/components/theme-picker/theme-storage/theme-storage';
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import {ThemeStorage} from './shared/components/theme-picker/theme-storage/theme
      })
   ],
   providers: [
-    ThemeStorage
+    ThemeStorage,
+    StyleManager
   ],
   bootstrap: [AppComponent]
 })
