@@ -70,7 +70,7 @@ export class ProjectListComponent {
   }
 
   openNewProjectDialog() {
-    const img = `/assets/img/covers/${Math.floor(Math.random() * 40)}_tn.jpg`;
+    const img = `./assets/img/covers/${Math.floor(Math.random() * 40)}_tn.jpg`;
     const thumbnails$ = this.getThumbnailsObs();
     const dialogRef = this.dialog.open(NewProjectComponent, {
       data: { thumbnails: thumbnails$, img: img }
@@ -158,7 +158,7 @@ export class ProjectListComponent {
 
   private getThumbnailsObs(): Observable<string[]> {
     return range(0, 40).pipe(
-      map(i => `/assets/img/covers/${i}_tn.jpg`),
+      map(i => `./assets/img/covers/${i}_tn.jpg`),
       reduce((r: string[], x: string) => {
         return [...r, x];
       }, [])
