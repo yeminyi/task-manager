@@ -14,7 +14,6 @@ import {TranslateService} from '@ngx-translate/core';
         <button mat-menu-item (click)="useEnglish()">English</button>
       </mat-menu>
       <span class="fill-remaining-space"></span>
-      <theme-picker></theme-picker>
       <mat-slide-toggle (change)="onChange($event.checked)">{{'darktheme' | translate}}</mat-slide-toggle>
       <span><a mat-button *ngIf="auth" (click)="handleLogout()">{{'signout' | translate}}</a></span>
     </mat-toolbar>
