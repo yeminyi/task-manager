@@ -3,7 +3,7 @@ import {TranslateService} from '@ngx-translate/core';
 @Component({
   selector: 'app-header',
   template: `
-    <mat-toolbar color="primary">
+    <mat-toolbar color="primary" fxFlex="1 1 auto">
       <button mat-icon-button (click)="onClick()" *ngIf="auth">
         <mat-icon>menu</mat-icon>
       </button>
