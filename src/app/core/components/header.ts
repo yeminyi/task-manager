@@ -14,6 +14,7 @@ import {TranslateService} from '@ngx-translate/core';
         <button mat-menu-item (click)="useEnglish()">English</button>
       </mat-menu>
       <span class="fill-remaining-space"></span>
+      <theme-picker (themeChange)="themeChange($event)"></theme-picker>
       <mat-slide-toggle (change)="onChange($event.checked)">{{'darktheme' | translate}}</mat-slide-toggle>
       <span><a mat-button *ngIf="auth" (click)="handleLogout()">{{'signout' | translate}}</a></span>
     </mat-toolbar>
@@ -31,6 +32,7 @@ export class HeaderComponent {
   @Input() auth = false;
   @Output() toggle = new EventEmitter<void>();
   @Output() toggleDarkTheme = new EventEmitter<boolean>();
+  @Output() changeTheme = new EventEmitter<string>();
   @Output() logout = new EventEmitter();
 
   onClick() {
@@ -43,6 +45,11 @@ export class HeaderComponent {
 
   onChange(checked: boolean) {
     this.toggleDarkTheme.emit(checked);
+  }
+  themeChange(theme: string)
+  {
+    console.log('head');
+    this.changeTheme.emit(theme);
   }
   useEnglish() {
     this.translate.use('en');

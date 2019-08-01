@@ -23,6 +23,7 @@ import * as prjActions from '../../actions/project.action';
         <app-header
           (toggle)="sidenav.toggle()"
           (toggleDarkTheme)="switchDarkTheme($event)"
+          (changeTheme)="switchTheme($event)"
           (logout)="onLogout()"
           [auth]="(auth$ | async)?.token">
         </app-header>
@@ -65,13 +66,28 @@ export class AppComponent {
 
   switchDarkTheme(dark: boolean) {
     this._dark = dark;
+    console.log('toggle');
+
     if (dark) {
       this.oc.getContainerElement().classList.add('myapp-dark-theme');
     } else {
       this.oc.getContainerElement().classList.remove('myapp-dark-theme');
     }
   }
+  switchTheme(theme: string) {
+    this.oc.getContainerElement().classList.add('myapp-theme-deeppurple-amber');
+    // this._dark = dark;
+    // if (theme=='dark') {
+    //   console.log('add');
 
+    //   this.oc.getContainerElement().classList.add('myapp-dark-theme');
+    // } else {
+    //   console.log('remove');
+    //   this.oc.getContainerElement().classList.remove('myapp-dark-theme');
+    // }
+    console.log(theme);
+
+  }
   onLogout() {
     this.store$.dispatch(new actions.LogoutAction());
   }
