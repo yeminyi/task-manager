@@ -67,24 +67,20 @@ export class AppComponent {
   switchDarkTheme(dark: boolean) {
     this._dark = dark;
     console.log('toggle');
-
+    console.log(this.oc.getContainerElement().classList);
     if (dark) {
-      this.oc.getContainerElement().classList.add('myapp-dark-theme');
+      this.oc.getContainerElement().classList.remove("light-custom-theme");
+      this.oc.getContainerElement().classList.add("custom-theme");
     } else {
-      this.oc.getContainerElement().classList.remove('myapp-dark-theme');
+      this.oc.getContainerElement().classList.remove("custom-theme");
+    this.oc.getContainerElement().classList.add("light-custom-theme");
     }
+
   }
   switchTheme(theme: string) {
-    this.oc.getContainerElement().classList.add('myapp-theme-deeppurple-amber');
-    // this._dark = dark;
-    // if (theme=='dark') {
-    //   console.log('add');
-
-    //   this.oc.getContainerElement().classList.add('myapp-dark-theme');
-    // } else {
-    //   console.log('remove');
-    //   this.oc.getContainerElement().classList.remove('myapp-dark-theme');
-    // }
+    console.log(this.oc.getContainerElement().classList);
+    this.oc.getContainerElement().classList.remove("light-custom-theme");
+    this.oc.getContainerElement().classList.add("custom-theme");
     console.log(theme);
 
   }
