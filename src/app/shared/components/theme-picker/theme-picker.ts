@@ -5,8 +5,6 @@ import {
   NgModule,
   OnInit,
   OnDestroy,
-  EventEmitter,
-  Output
 } from '@angular/core';
 import {StyleManager} from '../style-manager/style-manager';
 import {ThemeStorage, DocsSiteTheme} from './theme-storage/theme-storage';
@@ -53,18 +51,17 @@ export class ThemePicker implements OnInit, OnDestroy {
       name: 'deeppurple-amber',
       isDark: false,
     },
-      {
-      primary: '#E91E63',
-      accent: '#607D8B',
-      name: 'pink-bluegrey',
-      isDark: true,
-    },
     {
       primary: '#3F51B5',
       accent: '#E91E63',
       name: 'indigo-pink',
       isDark: false,
-
+    },
+    {
+      primary: '#E91E63',
+      accent: '#607D8B',
+      name: 'pink-bluegrey',
+      isDark: true,
     },
     {
       primary: '#9C27B0',
@@ -77,15 +74,14 @@ export class ThemePicker implements OnInit, OnDestroy {
   constructor(
     public styleManager: StyleManager,
     private _themeStorage: ThemeStorage,
-    private _activatedRoute: ActivatedRoute,
-    ) {
-    this.installTheme(this._themeStorage.getStoredThemeName());
+    private _activatedRoute: ActivatedRoute) {
+    // this.installTheme(this._themeStorage.getStoredThemeName());
   }
 
   ngOnInit() {
-    this._queryParamSubscription = this._activatedRoute.queryParamMap
-      .pipe(map(params => params.get('theme')), filter(Boolean))
-      .subscribe(themeName => this.installTheme(themeName));
+    // this._queryParamSubscription = this._activatedRoute.queryParamMap
+    //   .pipe(map(params => params.get('theme')), filter(Boolean))
+    //   .subscribe(themeName => this.installTheme(themeName));
   }
 
   ngOnDestroy() {
@@ -100,13 +96,13 @@ export class ThemePicker implements OnInit, OnDestroy {
     }
 
     this.currentTheme = theme;
-    console.log(this.currentTheme);
 
     if (theme.isDefault) {
       this.styleManager.removeStyle('theme');
     } else {
       this.styleManager.setStyle('theme', `assets/${theme.name}.css`);
     }
+
     if (this.currentTheme) {
       this._themeStorage.storeTheme(this.currentTheme);
     }
@@ -124,8 +120,6 @@ export class ThemePicker implements OnInit, OnDestroy {
   ],
   exports: [ThemePicker],
   declarations: [ThemePicker],
-  providers: [
-    StyleManager,
-    ThemeStorage],
+  providers: [StyleManager, ThemeStorage],
 })
 export class ThemePickerModule { }

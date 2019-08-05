@@ -8,14 +8,13 @@ import {TranslateService} from '@ngx-translate/core';
         <mat-icon>menu</mat-icon>
       </button>
       <span>{{'projectname' | translate}}</span>
-      <button mat-button [matMenuTriggerFor]="menu">{{'language' | translate}}</button>
+      <span class="fill-remaining-space"></span>
+      <theme-picker (themeChange)="themeChange($event)"></theme-picker>
+      <button mat-button [matMenuTriggerFor]="menu"> <mat-icon>language</mat-icon>{{'language' | translate}}</button>
       <mat-menu #menu="matMenu">
         <button mat-menu-item (click)="useChinese()">中文</button>
         <button mat-menu-item (click)="useEnglish()">English</button>
       </mat-menu>
-      <span class="fill-remaining-space"></span>
-      <theme-picker (themeChange)="themeChange($event)"></theme-picker>
-      <mat-slide-toggle (change)="onChange($event.checked)">{{'darktheme' | translate}}</mat-slide-toggle>
       <span><a mat-button *ngIf="auth" (click)="handleLogout()">{{'signout' | translate}}</a></span>
     </mat-toolbar>
   `,
