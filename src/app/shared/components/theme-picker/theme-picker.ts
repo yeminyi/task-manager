@@ -75,20 +75,20 @@ export class ThemePicker implements OnInit, OnDestroy {
     public styleManager: StyleManager,
     private _themeStorage: ThemeStorage,
     private _activatedRoute: ActivatedRoute) {
-    // this.installTheme(this._themeStorage.getStoredThemeName());
+    this.installTheme(this._themeStorage.getStoredThemeName());
   }
 
   ngOnInit() {
-    // this._queryParamSubscription = this._activatedRoute.queryParamMap
-    //   .pipe(map(params => params.get('theme')), filter(Boolean))
-    //   .subscribe(themeName => this.installTheme(themeName));
+    this._queryParamSubscription = this._activatedRoute.queryParamMap
+      .pipe(map(params => params.get('theme')), filter(Boolean))
+      .subscribe(themeName => this.installTheme(themeName));
   }
 
   ngOnDestroy() {
     this._queryParamSubscription.unsubscribe();
   }
 
-  installTheme(themeName: string) {
+  installTheme(themeName: any) {
     const theme = this.themes.find(currentTheme => currentTheme.name === themeName);
 
     if (!theme) {
