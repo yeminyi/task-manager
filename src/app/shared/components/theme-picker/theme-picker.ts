@@ -17,7 +17,7 @@ import {CommonModule} from '@angular/common';
 import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {map, filter} from 'rxjs/operators';
-
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'theme-picker',
@@ -30,7 +30,7 @@ import {map, filter} from 'rxjs/operators';
 export class ThemePicker implements OnInit, OnDestroy {
   private _queryParamSubscription = Subscription.EMPTY;
   currentTheme: DocsSiteTheme;
-
+  pickerTooltip: string;
   themes: DocsSiteTheme[] = [
     {
       primary: '#009688',
@@ -74,7 +74,8 @@ export class ThemePicker implements OnInit, OnDestroy {
   constructor(
     public styleManager: StyleManager,
     private _themeStorage: ThemeStorage,
-    private _activatedRoute: ActivatedRoute) {
+    private _activatedRoute: ActivatedRoute,
+    private translate: TranslateService) {
     this.installTheme(this._themeStorage.getStoredThemeName());
   }
 
@@ -83,7 +84,9 @@ export class ThemePicker implements OnInit, OnDestroy {
       .pipe(map(params => params.get('theme')), filter(Boolean))
       .subscribe(themeName => this.installTheme(themeName));
   }
-
+  ngDoCheck(){
+    this.pickerTooltip = this.translate.instant('themepicker.tooltip');
+  }
   ngOnDestroy() {
     this._queryParamSubscription.unsubscribe();
   }

@@ -10,7 +10,7 @@ import {TranslateService} from '@ngx-translate/core';
       <span>{{'projectname' | translate}}</span>
       <span class="fill-remaining-space"></span>
       <theme-picker (themeChange)="themeChange($event)"></theme-picker>
-      <button mat-button [matMenuTriggerFor]="menu"> <mat-icon>language</mat-icon>{{'language' | translate}}</button>
+      <button mat-button [matMenuTriggerFor]="menu" [matTooltip]="tooltip"> <mat-icon>language</mat-icon>{{'language' | translate}}</button>
       <mat-menu #menu="matMenu">
         <button mat-menu-item (click)="useChinese()">中文</button>
         <button mat-menu-item (click)="useEnglish()">English</button>
@@ -23,7 +23,7 @@ import {TranslateService} from '@ngx-translate/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
-  constructor(public translate: TranslateService){
+  constructor(private translate: TranslateService){
     translate.addLangs(['cn', 'en']);	// Add
     translate.setDefaultLang('en');		// Set default
     translate.use('en');				// use the language
@@ -33,7 +33,7 @@ export class HeaderComponent {
   @Output() toggleDarkTheme = new EventEmitter<boolean>();
   @Output() changeTheme = new EventEmitter<string>();
   @Output() logout = new EventEmitter();
-
+  tooltip: string;
   onClick() {
     this.toggle.emit();
   }
@@ -41,7 +41,9 @@ export class HeaderComponent {
   handleLogout() {
     this.logout.emit();
   }
-
+  ngDoCheck(){
+    this.tooltip = this.translate.instant('head.tooltip');
+  }
   onChange(checked: boolean) {
     this.toggleDarkTheme.emit(checked);
   }
