@@ -75,6 +75,8 @@
       "login.user_erro": "Please input your email",
       "login.password_erro": "Please check your password,it is not right",
       "forgot.youremail": "Your email which is used for registration",
-      "share.cover":"Please chose the cover:"
+      "share.cover":"Please chose the cover:",
+      "themepicker.tooltip":"Select a theme!",
+      "head.tooltip":"Select a language!"
 
 }

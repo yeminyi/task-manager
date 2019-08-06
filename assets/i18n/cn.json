@@ -75,6 +75,7 @@
     "login.user_erro": "用户名是必填项哦",
     "login.password_erro": "密码不正确哦",
     "forgot.youremail": "注册时使用的电子邮箱",
-    "share.cover":"请选择封面:"
-
+    "share.cover":"请选择封面:",
+    "themepicker.tooltip":"请选择主题!",
+    "head.tooltip":"请选择语言"
 }
