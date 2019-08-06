@@ -30,6 +30,7 @@ import { loadSvgResources } from '../utils/svg.util';
 import { DatepickerI18n } from '../shared/adapters/datepicker-i18n';
 import { MD_FNS_DATE_FORMATS } from '../shared/adapters/date-formats';
 import { CustomRouterStateSerializer } from '../utils/router.util';
+import { environment } from './../../environments/environment';
 @NgModule({
   imports: [
     SharedModule,
@@ -42,8 +43,7 @@ import { CustomRouterStateSerializer } from '../utils/router.util';
   ],
   exports: [AppComponent, AppRoutingModule],
   providers: [
-    // { provide: 'BASE_CONFIG', useValue: { uri: 'https://taskmanager2019demo.firebaseapp.com/api' } },
-    { provide: 'BASE_CONFIG', useValue: { uri: 'http://localhost:3002' } },
+    { provide: 'BASE_CONFIG', useValue: { uri: environment.apiUrl } },
     // { provide: LOCALE_ID, useValue: 'zh-Hans' },
     // { provide: MAT_DATE_LOCALE, useValue: 'zh-CN' },
     { provide: DateAdapter, useClass: MomentDateAdapter },
@@ -75,6 +75,7 @@ export class CoreModule {
     if (parentModule) {
       throw new Error('CoreModule already loaded，pls only add it in the AppModule.');
     }
+
     registerLocaleData(localeZh);
     loadSvgResources(iconRegistry, sanitizer);
   }
