@@ -27,8 +27,7 @@ import {TranslateService} from '@ngx-translate/core';
         <button mat-raised-button type="submit" [disabled]="!form.valid">{{'login.signin' | translate}}</button>
       </mat-card-content>
       <mat-card-actions class="text-right">
-        <p>{{'login.noaccount' | translate}}? <a routerLink="/register">{{'login.signup' | translate}}</a></p>
-        <p> <a routerLink="/forgot">{{'login.forgotpsw' | translate}}?</a></p>
+
       </mat-card-actions>
     </mat-card>
     <mat-card fxFlex="0 1 20rem" fxHide="true" fxShow.gt-xs>
