@@ -533,9 +533,9 @@ THE SOFTWARE.
 
 @angular/material/card
 
-@angular/material/form-field
-
 @angular/material/icon
+
+@angular/material/form-field
 
 @angular/material/grid-list
 
