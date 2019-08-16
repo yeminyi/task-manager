@@ -12,15 +12,15 @@ import {TranslateService} from '@ngx-translate/core';
   template: `
   <form fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" [formGroup]="form" (ngSubmit)="onSubmit(form, $event)">
     <mat-card fxFlex="0 1 20rem">
-      <mat-card-header>
-        <mat-card-title> {{'login' | translate}}：</mat-card-title>
-      </mat-card-header>
+      <mat-card-title fxLayoutAlign="center"> <mat-icon>lock</mat-icon>{{'login' | translate}}：</mat-card-title>
       <mat-card-content>
         <mat-form-field class="full-width">
+          <span matPrefix class="icon-size"><mat-icon>email</mat-icon> </span>
           <input matInput type="text" placeholder="{{'login.youremail' | translate}}" formControlName="email">
           <mat-error>{{'login.user_erro' | translate}}</mat-error>
         </mat-form-field>
         <mat-form-field class="full-width">
+          <span matPrefix class="icon-size"><mat-icon>lock</mat-icon></span>
           <input matInput type="password" placeholder="{{'login.yourpsw' | translate}}" formControlName="password">
           <mat-error>{{'login.password_erro' | translate}}</mat-error>
         </mat-form-field>
