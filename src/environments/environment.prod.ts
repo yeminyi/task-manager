@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
   hmr: false,
-  apiUrl:'https://taskmanager2019demo.firebaseapp.com/api'
+  apiUrl:'https://taskdemo2019.firebaseapp.com/api'
 };
